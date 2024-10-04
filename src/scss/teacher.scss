@@ -1,0 +1,76 @@
+.teacher {
+    // .teacher__container
+
+    &__container {
+        width: 100%;
+        padding: 5em 2.5em;
+        display: grid;
+        grid-template-columns: minmax(200px, 40%) minmax(300px, 60%);
+        background-color: #f8f5f2;
+        border-radius: 5vh;
+        @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
+        @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
+        @include adaptiveValue("gap", 80, 40);
+        @include adaptiveValue("padding-top", 120, 30, 3, 481, 320);
+        @include adaptiveValue("padding-bottom", 120, 30, 3, 481, 320);
+        @media (max-width:$mobile){
+            grid-template-columns: 1fr; 
+        }
+    }
+
+    // .teacher__body
+
+    &__body {
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+    }
+
+    // .teacher__wrapper-image
+
+    &__wrapper-image {
+        
+    }
+
+    // .teacher__image
+
+    &__image {
+        figure {
+            width: 100%;
+            position: relative;
+            border-radius: 2em;
+            overflow: hidden;
+        }
+    }
+
+    // .teacher__wrapper-title
+
+    &__wrapper-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include adaptiveValue("gap", 30, 20);
+    }
+
+    // .teacher__title
+
+    &__title {
+        color: $bgColor;
+    }
+
+    // .teacher__descr
+
+    &__descr {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        line-height: 120%;
+        opacity: 0.8;
+        font-weight: 300;
+        @include adaptiveValue("gap", 20, 10);
+        @include adaptiveValue("font-size", 18, 12);
+        @media (max-width:$mobileSmall){
+            max-width: 100%; 
+        }
+    }
+}

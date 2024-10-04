@@ -8,6 +8,8 @@
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
         @include adaptiveValue("gap", 80, 40);
+        @include adaptiveValue("padding-top", 80, 30, 3, 481, 320);
+        @include adaptiveValue("padding-bottom", 120, 20, 2, 481, 320);
     }
 
     // .directions__body

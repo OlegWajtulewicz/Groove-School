@@ -19,9 +19,13 @@
     &__container {
         padding: 5em 2.5em;
         display: grid;
+        @include adaptiveValue("gap", 80, 40);
         @include adaptiveValue("padding-left", 40, 10, 3, 481, 320);
         @include adaptiveValue("padding-right", 40, 10, 3, 481, 320);
-        @include adaptiveValue("gap", 80, 40);
+        @include adaptiveValue("padding-top", 80, 30, 3, 481, 320);
+        @include adaptiveValue("padding-bottom", 120, 20, 2, 481, 320);
+        
+        
     }
 
     // .supplement__title
