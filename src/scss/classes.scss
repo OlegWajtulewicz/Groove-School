@@ -1,0 +1,92 @@
+.classes {
+    // .classes__container
+    &__container {
+        position: relative;
+        background-color: #eaeaf2; 
+        border-radius: 0 0 5vh 5vh;
+        padding: 5em 2.5em;
+        display: grid;
+        @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
+        @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
+        &::after{
+            content:'';
+            position: absolute;
+            top: -5%;
+            left: 0;
+            width: 100%;
+            height: 10em;
+            background-color: #eaeaf2; 
+            z-index: -1;
+        }
+    }
+    &__title {
+        text-align: center;
+        margin: 0 auto;
+        
+    }
+    &__title,
+    &__subtitle {
+        color: $bgColor;
+    }
+}
+
+.body-classes {
+    @include adaptiveValue("padding-top", 50, 20, 2, 767, 320);
+    @include adaptiveValue("padding-bottom", 50, 20, 2, 767, 481);
+    // .body-classes__items
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @include adaptiveValue("gap", 40, 20);
+        @media (max-width:$tablet){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width:$mobile){
+            grid-template-columns: repeat(1, 1fr); 
+        }
+    }
+    // .body-classes__item--text
+    &__item--text,
+    &__item--video {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    // .body-classes__text
+    &__text {
+        line-height: 150%;
+        font-weight: 200;
+        text-align: center;
+        @include adaptiveValue("font-size", 18, 12 );
+    }
+    // .body-classes__item--video
+    &__video {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        &::before{
+            content:'';
+            display: block;
+            padding-top: 100%;
+        }
+    }
+    // .body-classes__video-overlay
+    &__video-overlay {
+        border-radius: 2em;
+        overflow: hidden;
+        position:absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    // .body-classes__video-main
+    &__video-main {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+

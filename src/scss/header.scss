@@ -1,0 +1,279 @@
+.header {
+    padding: 3.5em 1.5em 1.5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 5;
+    pointer-events: none;
+    @include adaptiveValue("padding-top", 56, 20);
+    @include adaptiveValue("padding-left", 40, 0, 3, 767, 320);
+    @include adaptiveValue("padding-right", 40, 0, 3, 767, 320);
+    // .header__container
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+    }
+    &__menu {
+        position: relative;
+        font-size: 2em;
+        color: $textColor;
+        cursor: pointer;
+        pointer-events: all;
+        overflow: hidden;
+        padding: .5em 0;
+        @include adaptiveValue("font-size", 32, 22, 3, 767, 320);
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+}
+.logo {
+    display: flex;
+    align-items: flex-end;
+    gap: .5em;
+    pointer-events: all;
+    cursor: pointer !important;
+    ._header-scroll & {
+        gap: 0;
+    }
+    @media (max-width:$mobile) {
+        gap: 0;
+    }
+    
+    // .logo__word-1
+
+    &__word-1,
+    &__word-2 {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.1em;
+    }
+
+    // .logo__word-1--big
+
+    &__word-1--big,
+    &__word-2--big {
+        height: 2.5em;
+        overflow: hidden;
+       
+    }
+
+    // .logo__word-1--small
+
+    &__word-1--small,
+    &__word-2--small {
+        height: 1.8em;
+        will-change: transform;
+       // will-change: width;
+        transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+        transform: rotateY(0) translate3d(0, 0, 0) rotate(0.001deg);
+        z-index: 0;
+        width: 23px;
+        ._header-scroll & {
+            transform: rotateY(90deg) translate3d(0, 0, 0) rotate(0.001deg);
+            width: 0;
+            transition: width 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+        }
+        @media (max-width:$mobile) {
+            width: 0;
+        }
+
+        &.big {
+            height: 2.3em; 
+        }
+        &.logo-links  {
+            will-change: transform;
+            transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+            transform: translateX(-100%) scaleY(1.04) rotate(0.001deg) !important;
+            width: 0;
+        }
+    }
+
+    // .logo__word-2
+
+    &__word-2 {
+    }
+
+    // .logo__word-2--big
+
+    &__word-2--big {
+    }
+
+    // .logo__word-2--small
+
+    &__word-2--small {
+    }
+}
+//========================================================================================================================================================
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 3.5em 2.5em 2.5em;
+    background-color: #535353;
+    pointer-events: none;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    //height: 100%;
+    overflow: auto;
+    border-radius: 0 0 2em 2em;
+
+    background: linear-gradient(140deg, #242424, #2c013b);
+    background-repeat: no-repeat;
+    background-size: 200%;
+    animation: gradient 10s infinite;
+    @include adaptiveValue("padding-top", 56, 20);
+    @include adaptiveValue("padding-bottom", 40, 25, 3, 767, 320);
+    @include adaptiveValue("padding-left", 40, 15, 3, 767, 320);
+    @include adaptiveValue("padding-right", 40, 15, 3, 767, 320);
+
+}
+.menu-nav {
+    color: $textColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.menu-close {
+    cursor: pointer;
+    z-index: 18;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+    @include adaptiveValue("font-size", 32, 22, 3, 767, 320);
+}
+.menu-cols {
+    height: 100%;
+    color: $textColor;
+    display: flex;
+    @media (max-width:$mobile){
+        .col:first-child {
+            display: none;
+        }
+    }
+    
+}
+.menu-cols > div {
+    flex: 1;
+    padding: 1em 0;
+}
+
+.menu-link {
+    position: relative;
+    width: max-content;
+    margin-bottom: 1em;
+    padding-bottom: .5em;
+    &::after{
+        content:'';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $textColor;
+        transition: .3s all ease;
+    }
+    @media (any-hover: hover){
+        &:hover{
+            &::after{
+                width: 100%;
+            }
+        }
+    }
+}
+.menu-link a {
+    font-size: toRem(36);
+    width: 100%;
+    @include adaptiveValue("font-size", 32, 22, 3, 767, 320);
+}
+
+.menu-footer {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+.menu-divider {
+    position: relative;
+    height: 1px;
+    background-color: #fff;
+    width: 0;
+    left: 0;
+    margin: 0 0 1.5em 0;
+}
+.menu-footer-copy {
+    color: $textColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: toRem(18);
+    @include adaptiveValue("font-size", 18, 12, 3, 767, 320, );
+}
+.slogan {
+}
+.social {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    @media (max-width:$mobile){
+        display: none; 
+    }
+}
+//========================================================================================================================================================
+.split-words:nth-child(1) {
+    position: relative;
+    transform: translateY(0);
+    --animation-primary: .6s cubic-bezier(.7, 0, .3, 1);
+}
+.split-words:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    --animation-primary: .6s cubic-bezier(.7, 0, .3, 1);
+}
+.split-words:nth-child(1) .single-word {
+    position: relative;
+    transform: translateY(0%);
+    transition: var(--animation-primary);
+}
+.split-words:nth-child(2) .single-word {
+    position: relative;
+    transform: translateY(175%);
+    transition: var(--animation-primary);
+
+}
+.header__menu {
+    @media (any-hover: hover){
+        &:hover{
+            .split-words:nth-child(1) .single-word {
+                transform: translateY(-175%);
+            }
+            .split-words:nth-child(2) .single-word {
+                transform: translateY(0%);
+            }
+        }
+    }
+}
+//========================================================================================================================================================
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+            }
+}

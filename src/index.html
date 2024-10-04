@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Development «NEW_PROJECT_NAME»</title>
+	</head>
+	<body>
+		<div class="noise"></div>
+		<div class="rootpage">
+			<h1>Development «NEW_PROJECT_NAME»</h1>
+			<div class="rootpage__info">
+				Описание проекта
+			</div>
+			<h2>Готовые страницы:</h2>
+			<ol class="rootpage__list">
+				<li><a target="_blank" href="home.html">HomePage</a></li>
+				<li><a target="_blank" href="contact.html">Contact</a></li>
+				<li><a target="_blank" href="404.html">404</a></li>
+			</ol>
+			<h2>Попапы:</h2>
+			<ol class="rootpage__list">
+				<li><a target="_blank" href="home.html#thanks">thanks</a></li>
+			</ol>
+			<div class="rootpage__tnx">
+				<h2>Спасибо за заказ!</h2>
+				<p>Буду рад хорошему отзыву.</p>
+				<p>Обращайтесь ещё!</p>
+			</div>
+			<div class="rootpage__contacts">
+				<h2>Мои контакты:</h2>
+				<p>E-Mail: <a href="mailto:vaitulevichaleh@gmail.com">vaitulevichaleh@gmail.com</a></p>
+				<p>Phone: <a href="tel:48780132019">+48 780 132 019</a></p>
+				<p>Web - site: <a target="_blank" href="">vaitulevichaleh.com</a></p>
+			</div>
+		</div>
+	</body>
+	<style>
+		@charset "UTF-8";
+		@import url("https://fonts.googleapis.com/css?family=Golos+Text:100,200,300,regular,500,600,700,800,900&display=swap");
+		* ,*::before, *::after {
+			padding: 0px;
+			margin: 0px;
+			border: 0px;
+			box-sizing: border-box; 
+		}
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			min-width: 320px;
+			width: 100%;
+			color: #fff;
+			/* background-color: #333444; */
+			background: linear-gradient(140deg, #270606, #2c013b);
+    		background-repeat: no-repeat;
+    		background-size: 200%;
+			animation: gradient 10s infinite;
+		}
+		@keyframes gradient {
+			0% {
+				background-position: 0 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+    			background-position: 0 50%;
+					}
+		}
+		body {
+			font-family: Golos Text;
+			font-size: 100%;
+			line-height: 1;
+			font-size: 1rem;
+		}
+		a {
+			text-decoration: underline;
+			color: #ebe691
+		}
+		a:visited {
+			text-decoration: underline;
+			color: #aaa768;
+		}
+			a:hover {
+			text-decoration: none;
+		}
+		ul li {
+			list-style: none;
+		}
+		img {
+			vertical-align: top;
+		}
+		.wrapper {
+			width: 100%;
+			min-height: 100%;
+			overflow: hidden;
+		}
+		.rootpage{
+			padding: 30px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		@media (max-width: 767px) {
+			.rootpage{
+				padding:30px 15px;
+			}
+		}
+		h1 {
+			color: #ffffff;
+			font-size: 2.5rem;
+			margin: 0px 0px 1.25rem 0px;
+		}
+		@media (max-width: 767px) {
+			h1 {
+				font-size: 1.85rem;
+				margin: 0px 0px 1.25rem 0px;
+			}
+		}
+		h2 {
+			color: #ebe691;
+			font-size: 1.25rem;
+			margin: 0px 0px 1rem 0px;
+		}
+		@media (max-width: 767px) {
+			 h2 {
+				font-size: 1.125rem;
+				margin: 0px 0px 1rem 0px;
+			}
+		}
+		.rootpage__info{
+			line-height: 140%;
+			margin: 0px 0px 1.5rem 0px;
+		}
+
+		.rootpage__list{
+			margin: 0px 0px 2.25rem 1.25rem;
+		}
+		.rootpage__list li:not(:last-child){
+			margin: 0px 0px 15px 0px;
+		}
+		.rootpage__contacts,
+		.rootpage__tnx{
+			border-radius: 25px;
+			padding: 20px 65px;
+			line-height: 140%;
+		}
+		@media (max-width: 767px){
+		.rootpage__contacts,
+		.rootpage__tnx{
+			border-radius:40px;
+			padding: 20px;
+		}
+		}
+		.rootpage__contacts{
+			/* background: #32b5a4; */
+			background: #8e9190;
+		}
+		.rootpage__contacts a{
+			color: #ebe691;
+		}
+		.rootpage__tnx{
+			/* background: #c22d63; */
+			background: #4b061f;
+			margin: 0px 0px 1rem 0px;
+		}
+		/*  Noise  **/
+.noise {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 200;
+	position: fixed;
+	pointer-events: none;
+	&::before{
+		content:'';
+		position: absolute;
+		top: -10rem;
+		left: -10rem;
+		width: calc(100% + 20rem);
+		height: calc(100% + 20rem);
+		background: url('../img/noise.png');
+		background-position: 50%;
+		pointer-events: none;
+		z-index: 200;
+		animation: noise 2s steps(2) infinite;
+	}
+}
+@keyframes noise {
+	0% {
+		transform: translate3d(0, 9rem, 0);
+	}
+	10% {
+		transform: translate3d(-1rem, -4rem, 0);
+	}
+	20% {
+		transform: translate3d(-8rem, 2rem, 0);
+	}
+	30% {
+		transform: translate3d(9rem, -9rem, 0);
+	}
+	40% {
+		transform: translate3d(-2rem, 7rem, 0);
+	}
+	50% {
+		transform: translate3d(-9rem, -4rem, 0);
+	}
+	60% {
+		transform: translate3d(2rem, 6rem, 0);
+	}
+	70% {
+		transform: translate3d(7rem, -8rem, 0);
+	}
+	80% {
+		transform: translate3d(-9rem, 1rem, 0);
+	}
+	90% {
+		transform: translate3d(6rem, -5rem, 0);
+	}
+	to {
+		transform: translate3d(-7rem, 0, 0);
+	}
+}
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(67, 2, 153);
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+}
+	</style>
+</html>

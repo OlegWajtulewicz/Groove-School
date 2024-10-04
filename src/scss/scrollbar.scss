@@ -1,0 +1,44 @@
+/* ------------------------- Custom Scrollbar -------------------------------------------------- */
+
+[data-scrollbar] {
+    width: 5px;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    z-index: 999;
+    display: none;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+    opacity: 0;
+    justify-content: center;
+    justify-self: center;
+ }
+ 
+ [data-scrollbar] [data-scrollbar-thumb] {
+    min-height: 2em;
+    height: 4em;
+    background-color: rgba(80, 81, 90, 0.808);
+    cursor: grab;
+    border-radius: 30px;
+    width: 100%;
+    pointer-events: none;
+    /* background-color: var(--color-primary); */
+ }
+ 
+ .lenis-smooth.lenis-scrolling [data-scrollbar] {
+    opacity: 1;
+ }
+ 
+ [data-scrollbar]:hover,
+ [data-scrollbar-drag="true"]  {
+    opacity: 1;
+    width: 9px;
+ }
+ 
+ @media screen and (min-width: 1024px) {
+    .lenis-smooth [data-scrollbar] {
+       display: flex;
+    }
+ }

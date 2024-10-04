@@ -1,0 +1,61 @@
+// Заголовки, загальні БЕМ блоки та інше...
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+img.overlay {
+    object-fit: cover;
+}
+
+
+.overlay .overlay-dark {
+    background: rgba(var(--color-black-rgb), 0.66);
+   // z-index: 2;
+}
+.hello-block .overlay-dark {
+    &::after{
+        content:'';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0.55) 25%, rgba(var(--color-black-rgb), 0.1) 100%);
+       // background: linear-gradient(180deg, var(--color-primary-dark) 0%, var(--color-dark) 75%);
+    }
+}
+//========================================================================================================================================================
+.block-title {
+    font-size: toRem(42);
+    max-width: 70%;
+    line-height: 120%;
+    font-weight: 600;
+    position: relative;
+    color: #fffef8;
+    
+    z-index: 2;
+    @include adaptiveValue("font-size", 42, 22);
+    @media (max-width:$mobile){
+        max-width: 100%; 
+    }
+
+    &__subtitle {
+        color: $textColor;
+        font-size: toRem(12);
+        opacity: 0.6;
+    }
+    &__posttext {
+        font-size: toRem(16);
+        font-weight: 200;
+        letter-spacing: 0.03em;
+        line-height: 130% ;
+        padding-top: 0.5em;
+        @include adaptiveValue("font-size", 16, 12, 3, 767, 320);
+    }
+}
+
+
+
