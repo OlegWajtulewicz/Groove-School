@@ -1,0 +1,121 @@
+.location {
+
+    // .location__container
+
+    &__container {
+        padding: 5em 2.5em;
+        @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
+        @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
+        @include adaptiveValue("gap", 80, 40);
+        @include adaptiveValue("padding-top", 120, 30, 3, 481, 320);
+        @include adaptiveValue("padding-bottom", 120, 30, 3, 481, 320);
+    }
+    &__wrapper {
+        display: grid;
+        grid-template-columns: minmax(300px, 60%) minmax(200px, 40%);
+        @include adaptiveValue("gap", 80, 40);
+        @media (max-width:$mobile){
+            grid-template-columns: 1fr; 
+        }
+    }
+
+    // .location__body
+
+    &__body {
+    }
+
+    // .location__video
+
+    &__video {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        &::before{
+            content:'';
+            display: block;
+            padding-top: 100%;
+        }
+    }
+
+    // .location__video-overlay
+
+    &__video-overlay {
+        border-radius: 2em;
+        overflow: hidden;
+        position:absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    // .location__video-main
+
+    &__video-main {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.body-location {
+    display: flex;
+    flex-direction: column;
+    color: $textColor;
+    @include adaptiveValue("gap", 30, 20);
+
+    // .body-location__title
+
+    &__title {
+        font-size: toRem(22);
+		font-weight: 600;
+		line-height: 130%;
+		@include adaptiveValue("font-size", 22, 12, 3, 767, 320);
+        
+    }
+    // .body-location__descr
+    &__descr {
+        display: flex;
+        flex-direction: column;
+        line-height: 150%;
+        opacity: 0.8;
+        font-weight: 200;
+        @include adaptiveValue("gap", 20, 10);
+        @include adaptiveValue("font-size", 18, 12);
+        @media (max-width:$mobileSmall){
+            max-width: 100%; 
+        }
+    }
+
+    // .body-location__address
+
+    &__address {
+        font-weight: 300;
+        line-height: 166%;
+        a {
+            opacity: 1;
+            text-decoration: none;
+            transition: var(--animation-primary);
+            position: relative;
+            white-space: nowrap;
+            &::before{
+                content: "";
+                bottom: 0;
+                width: 100%;
+                background: $textColor;
+                opacity: 0.3;
+                height: toRem(1);
+                position: absolute;
+                left: 0;
+                transition: all var(--animation-primary);
+            }
+            @media (any-hover: hover){
+                opacity: 1;
+                &:hover{
+                    &::before{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,8 +7,8 @@
         padding: 5em 2.5em;
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
-        @include adaptiveValue("padding-top", 120, 30, 3, 767, 320);
-        @include adaptiveValue("padding-bottom", 120, 30, 3, 767, 320);
+        @include adaptiveValue("padding-top", 60, 20, 3, 767, 320);
+        @include adaptiveValue("padding-bottom", 40, 0, 3, 767, 320);
     }
 
     // .testimonial-slider__wrapper-slider
@@ -57,8 +57,12 @@
     		
 }
 .flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+    will-change: transform;
     transform: scale(0.98) rotate(0.001deg);
     transition: transform var(--animation-smooth) -0.1s;
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab;
 } 
 /* Drag effect */
 
@@ -119,6 +123,9 @@
     overflow: visible;
     transition: height 0.2s;
     will-change: transform;
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: grab;
  }
  
  /* Turn Flickity ON */

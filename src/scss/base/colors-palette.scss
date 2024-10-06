@@ -82,7 +82,8 @@
    --color-alert-error: #dc122d;
    --color-alert-success: #46d054;
 
-   --animation-primary: 0.3s cubic-bezier(.5, 0, .25, 1);
+   // --animation-primary: 0.4s cubic-bezier(.85, 0, .15, 1);
+   --animation-primary: 0.3s cubic-bezier(.5, 0, .25, 1); 
    --animation-smooth: 0.5s cubic-bezier(1, 0, .25, 1);
    --animation-theme: 0.3s ease-in-out;
    --animation-nav-smooth: 0.5s cubic-bezier(.5, 0, .25, 1);

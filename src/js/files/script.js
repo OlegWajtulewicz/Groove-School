@@ -30,56 +30,66 @@ if (scrollbar.length > 1) {
   // scrollbar[0].remove(); // Это можно активировать по необходимости
 }
 
-// Отслеживаем элементы с атрибутом `data-scroll-speed`
-const speedElements = document.querySelectorAll('[data-scroll-speed]');
-
-lenis.on('scroll', (e) => {
-  $('.flickity-carousel').each(function() {
-    var flkty = $(this).data('flickity');
-    if (flkty) {
-        flkty.resize(); // Вызываем resize только если Flickity инициализирован
-    }
-});
-  
+// Обработчик скролла
+lenis.on('scroll', () => {
+  // 1. Обновляем ScrollTrigger
   ScrollTrigger.update();
 
-  // Применяем parallax эффект для элементов
+  // 2. Обрабатываем Flickity слайдеры
+  $('.flickity-carousel').each(function () {
+    const flkty = $(this).data('flickity');
+    if (flkty) {
+      flkty.resize();  // Вызываем resize только если Flickity инициализирован
+    }
+  });
+
+  // 3. Обрабатываем элементы с параллакс-эффектом (data-scroll-speed)
+  const speedElements = document.querySelectorAll('[data-scroll-speed]');
   speedElements.forEach((el) => {
     const speed = parseFloat(el.getAttribute('data-scroll-speed')) || 1;
-    const y = window.scrollY * speed;  // Вычисляем на основе прокрутки
-    el.style.transform = `translateY(${y}px)`;  // Применяем смещение
+    const rect = el.getBoundingClientRect();
+
+    // Проверяем, находится ли элемент в зоне видимости
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const y = window.scrollY * speed;
+      el.style.transform = `translateY(${y}px)`;  // Применяем смещение для параллакса
+    }
   });
 });
 
-// Функция для обработки атрибутов скролла
+// Функция для обработки атрибутов `data-scroll`
 function handleScrollElements() {
   const scrollElements = document.querySelectorAll('[data-scroll]');
 
   scrollElements.forEach((element) => {
     const speed = parseFloat(element.getAttribute('data-scroll-speed')) || 0;
     const position = element.getAttribute('data-scroll-position') || 'top';
-    const offset = element.getAttribute('data-scroll-offset') || '0%';
+    const offset = parseFloat(element.getAttribute('data-scroll-offset')) || 0;
 
-    // Обработчик скролла
     lenis.on('scroll', () => {
       const scrollY = window.scrollY || window.pageYOffset;
-      const elementRect = element.getBoundingClientRect();
+      const rect = element.getBoundingClientRect();
 
-      // Прокрутка элемента с учетом speed
-      const translateY = scrollY * speed;
+      const buffer = 190;
+      // Проверяем, находится ли элемент в зоне видимости
+      if (rect.top < window.innerHeight + buffer && rect.bottom > -buffer) {
+        const translateY = scrollY * speed;
 
-      // Устанавливаем позицию элемента в зависимости от data-scroll-position
-      if (position === 'bottom') {
-        element.style.transform = `translateY(${translateY + parseFloat(offset)}px)`;
-      } else {
-        element.style.transform = `translateY(${translateY - parseFloat(offset)}px)`;
+        // Устанавливаем позицию элемента в зависимости от data-scroll-position
+        if (position === 'bottom') {
+          element.style.transform = `translateY(${translateY + offset}px)`;
+        } else {
+          element.style.transform = `translateY(${translateY - offset}px)`;
+        }
       }
     });
   });
 }
 
-// Инициализация обработки скролла
+// Инициализация
 handleScrollElements();
+
+
 
 // Обновляем ScrollTrigger при изменении размера окна
 window.addEventListener('resize', () => {
@@ -600,7 +610,7 @@ function initScripts() {
     friction: 0.25,
     percentPosition: true,
     freeScroll: false,
-    adaptiveHeight: true,
+   // adaptiveHeight: true,
     imagesLoaded: true,
 });
   

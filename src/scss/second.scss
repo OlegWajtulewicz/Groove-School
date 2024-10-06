@@ -4,15 +4,15 @@
     z-index: 2;
     
     &::before{
-      //  content:'';
+        content:'';
         position: absolute;
-        top: toRem(-0);
+        top: toRem(-2);
         left: -5%;
         width: 120%;
         height: 12em;
         z-index: 0;
         pointer-events: none;
-        transform: translateY(0%) rotate(-4deg);
+       // transform: translateY(0%) rotate(-4deg);
         transform-origin: left top;
         pointer-events: none;
 		//background-image: url("@img/texture-dark.jpg");

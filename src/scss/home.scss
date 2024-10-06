@@ -19,11 +19,15 @@
         left: 0;
         height: 100%;
         width: 100%;
-     //   background-color: #2e0c0c33;
+        background: linear-gradient(180deg, rgba(212, 0, 255, 0.055) 30%, transparent 70%, rgba(0, 0, 0, 0) 60%, transparent 75%);
         z-index: 1;
     }
     .overlay-gradient {
         background: linear-gradient(0deg, rgba(var(--bgColor-dark-rgb), 1) 6%, rgba(var(--bgColor-dark-rgb), 0) 100%);
+        transform: scaleY(1);
+        height: calc(100% + 2px);
+        top: toRem(-1);
+        
     }
     
     // .hello-block__container

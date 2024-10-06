@@ -180,15 +180,20 @@
         position: absolute;
         top: 100%;
         left: 0;
-        width: 0;
-        height: 2px;
+        width: 100%;
+        height: toRem(1);
         background-color: $textColor;
         transition: .3s all ease;
+        transform: scaleX(0) rotate(0.001deg);
+        transform-origin: right top;
+        transition: transform var(--animation-primary);
     }
     @media (any-hover: hover){
         &:hover{
             &::after{
-                width: 100%;
+                transform: scaleX(1) rotate(0.001deg);
+                transform-origin: left top;
+                transition: transform var(--animation-primary);
             }
         }
     }
@@ -228,6 +233,31 @@
     gap: 1em;
     @media (max-width:$mobile){
         display: none; 
+    }
+}
+.social__item {
+    line-height: 120%;
+    position: relative;
+    &::after{
+        content:'';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: toRem(1);
+        background-color: $textColor;
+        transform: scaleX(0) rotate(0.001deg);
+        transform-origin: right top;
+        transition: transform var(--animation-primary);
+    }
+    @media (any-hover: hover){
+        &:hover{
+            &::after{
+                transform: scaleX(1) rotate(0.001deg);
+                transform-origin: left top;
+                transition: transform var(--animation-primary);
+            }
+        }
     }
 }
 //========================================================================================================================================================
