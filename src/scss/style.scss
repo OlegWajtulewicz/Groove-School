@@ -22,7 +22,7 @@ $fontSize: toRem(16); // де 14(px) - розмір шрифту за замов
 
 // Основні кольори
 $mainColor: #000; // Колір шрифту за замовчуванням
-$bgColor: #18181a; // Колір фону
+$bgColor: var(--bgColor-dark); // Колір фону
 $textColor: #fffef8; // Колір тексту
 // Палітра кольорів
  @import "base/colors-palette";
@@ -97,25 +97,13 @@ body {
     background: #0c0c0c;
 }
 //======= lenis Recommended CSS =================================================================================================================================================
-html.lenis, html.lenis body {
-    height: auto;
-  }
-  
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-  
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-  
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-  
-  .lenis.lenis-scrolling iframe {
-    pointer-events: none;
-  }
+
+html.lenis, html.lenis body { height: auto; } 
+.lenis.lenis-smooth {scroll-behavior: auto; height: 100vh;}
+.lenis.lenis-smooth [data-lenis-prevent] {overscroll-behavior: contain;}
+.lenis.lenis-stopped {overflow: hidden;}
+.lenis.lenis-scrolling iframe {pointer-events: none;}
+
 // Оболонка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
 	min-height: 100%;
@@ -207,6 +195,13 @@ html.lenis, html.lenis body {
 @import "directions"; 
 @import "classes";
 @import "teacher";
+@import "marquee";  
+@import "questions";
+@import "testimonial-slider";
+
+//@import "teachers";
+//@import "gallery";
+
 
 //========================================================================================================================================================
 .page {

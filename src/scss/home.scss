@@ -19,8 +19,11 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: #2e0c0c33;
+     //   background-color: #2e0c0c33;
         z-index: 1;
+    }
+    .overlay-gradient {
+        background: linear-gradient(0deg, rgba(var(--bgColor-dark-rgb), 1) 6%, rgba(var(--bgColor-dark-rgb), 0) 100%);
     }
     
     // .hello-block__container
@@ -143,9 +146,9 @@
         background-color: #ffffff28;
         border: 1px solid #fff; 
         will-change: transform;
-       @include adaptiveValue("font-size", 20, 14, 3, 991, 767);
-       @include adaptiveValue("margin-bottom", 20, 0, 3, 767, 320);
-       @include adaptiveValue("margin-top", 48, 10, 3, 767, 320);
+        @include adaptiveValue("font-size", 20, 14, 3, 991, 767);
+        @include adaptiveValue("margin-bottom", 20, 0, 3, 767, 320);
+        @include adaptiveValue("margin-top", 48, 10, 3, 767, 320);
         &:active{
             transform: scale(.95); 
         }
@@ -189,7 +192,6 @@
             justify-content: center;
             width: 100%;
             height: 100%;
-           // padding: 0 2.5em;
             z-index: 2;
             position: relative;
             transform:  rotate(0.001deg) ;

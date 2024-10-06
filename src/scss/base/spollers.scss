@@ -5,90 +5,104 @@
 .spollers {
 	display: grid;
 	gap: 15px;
+	border: 1px solid rgba(238, 238, 238, 0.151);
+	border-radius: var(--border-radius);
+	background-color: var(--color-text);
+	
 }
 // Спойлер
 .spollers__item {
-	font-size: toRem(20);
+	font-size: toRem(22);
+	
 }
 // Заголовок спойлера
 .spollers__title {
 	width: 100%;
 	cursor: default;
 	text-align: left;
-	border: 1px solid #eee;
-	padding: toRem(10) toRem(15);
-	border-radius: toRem(5);
+	padding: var(--row-gap) var(--col-gap);
+	color: $textColor;
 	position: relative;
+	
 	list-style: none;
+	@include adaptiveValue("font-size", 22, 12, 3, 767, 320);
 	&::marker,
 	&::-webkit-details-marker {
 		display: none;
 	}
 	._spoller-init & {
 		cursor: pointer;
-		&::before,
-		&::after {
+		&::before {
 			content: "";
 			position: absolute;
-			right: 10px;
-			top: 50%;
-			background-color: #000;
-			height: 2px;
-			width: 15px;
-			transition: transform 0.5s ease 0s;
+			right: 2em;
+			top: 45%;
+			background-color: #ccc7c7;
+			height: 0.5em;
+			width: 0.5em;
+			border-radius: 50%;
+			will-change: color, opacity;
+			transition: var(--animation-primary);
+			backdrop-filter: saturate(180%) blur(20px);
+			-webkit-backdrop-filter: saturate(180%) blur(20px);
+			background-color: #c241e938;
 		}
 		&::before {
-			transform: translate(-75%, -50%) rotate(40deg);
+			//transform: translate(-75%, -50%) rotate(40deg);
 		}
-		&::after {
-			transform: translate(0, -50%) rotate(-40deg);
-		}
+		// &::after {
+		// 	transform: translate(0, -50%) rotate(-40deg);
+		// }
 		&._spoller-active {
 			&::before {
-				transform: translateX(-75%) rotate(-40deg);
+				//transform: translateX(-75%) rotate(-40deg);
+				background-color: rgb(195, 0, 255);
+				opacity: 1;
 			}
-			&::after {
-				transform: rotate(40deg);
-			}
+			// &::after {
+			// 	transform: rotate(40deg);
+			// }
 		}
-		/*
+		
 		._spoller-init & {
 			position: relative;
 			width: 100%;
 			text-align: left;
-			&::before,
-			&::after {
+			will-change: transform;
+			&::before {
 				content: "";
 				position: absolute;
 				right: 0;
 				top: toRem(12);
 				height: toRem(1);
-				transition: all 0.3s ease 0s;
+				transition: var(--animation-primary);
 				width: toRem(10);
-				background-color: #000;
 			}
 			&::before {
-				transform: rotate(40deg);
-				right: toRem(7);
+			//	transform: rotate(40deg);
+			//	right: toRem(7);
 			}
-			&::after {
-				transform: rotate(-40deg);
-			}
+			// &::after {
+			// 	transform: rotate(-40deg);
+			// }
 		}
-		&._spoller-active {
-			&::before {
-				transform: rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
-			}
-		}
-		*/
+		// &._spoller-active {
+		// 	&::before {
+		// 		background-color: rgb(195, 0, 255);
+		// 	}
+		// 	// &::after {
+		// 	// 	transform: rotate(40deg);
+		// 	// }
+		// }
+		
 	}
 }
 // Контент спойлера
 .spollers__body {
-	padding: toRem(20);
-	border-radius: toRem(5);
-	border: 1px solid #eee;
+	padding: 0 calc(var(--col-gap)* 1.5) calc(var(--row-gap)* 1.5) calc(var(--col-gap)* 1);
+    color: $textColor;
+	line-height: 120%;
+    opacity: 0.6;
+	font-weight: 200;
+	@include adaptiveValue("font-size", 18, 12 );
 }

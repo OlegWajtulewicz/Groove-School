@@ -45,7 +45,7 @@ import * as flsFunctions from "./files/functions.js";
 Документація: https://template.fls.guru/template-docs/modul-spojlery.html
 Сніппет (HTML): spollers
 */
-// flsFunctions.spollers();
+ flsFunctions.spollers();
 
 /*
 Модуль "Таби"

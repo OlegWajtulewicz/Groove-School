@@ -4,13 +4,13 @@
     z-index: 2;
     
     &::before{
-        content:'';
+      //  content:'';
         position: absolute;
         top: toRem(-0);
         left: -5%;
         width: 120%;
         height: 12em;
-        z-index: 1;
+        z-index: 0;
         pointer-events: none;
         transform: translateY(0%) rotate(-4deg);
         transform-origin: left top;

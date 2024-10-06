@@ -1,0 +1,157 @@
+/* ------------------------- Marquee -------------------------------------------------- */
+
+/* .marquee-group {
+   position: relative;
+} */
+.section {
+ //  position: relative;  
+  // padding-top: var(--section-padding);
+   padding-bottom: var(--section-padding);
+}
+.marquee-group{
+   position: relative;
+}
+.marquee-group::before,
+.marquee-group::after {
+   content:"";
+   position: absolute;
+   pointer-events: none;
+   left: 0;
+   top: 0;
+   height: 200%;
+   transform: translateY(-50%);
+   width: calc((var(--title-size) * 0.66) * 3);
+   background: linear-gradient(90deg, rgba(var(--color-dark-rgb),1) 0%, rgba(var(--color-dark-rgb),0) 100%);
+   z-index: 2;
+   display: none;
+}
+
+.marquee-group::after {
+   left: unset;
+   right: 0;
+   transform: translateY(-50%) scaleX(-1);
+}
+
+.marquee {
+  // position: relative;
+}
+
+.marquee .marquee-scroll {
+   position: relative;
+   display: flex;
+   width: 140%;
+   margin-left: -20%;
+}
+
+.marquee .marquee-content {
+   position: relative;
+   display: flex;
+}
+
+.marquee .marquee-content span {
+   white-space: nowrap;
+   line-height: 1;
+   margin-right: 0.5em;
+   color: $textColor;
+ //  color: var(--color-white);
+ //  font-family: 'Axiforma', sans-serif;
+   font-weight: 500;
+   font-size: calc(var(--title-size) * 0.6);
+}
+
+.marquee .marquee-content span.divider {
+   /* opacity: 0.25; */
+   color: transparent !important;
+   position: relative;
+}
+
+.marquee .marquee-content span.divider::before {
+   content: "";
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 0.75em;
+   height: 0.25em;
+ //  background-color: var(--color-primary); 
+   border-radius: 2em;
+   backdrop-filter: saturate(180%) blur(20px);
+   -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: #c241e938;
+}
+
+[data-theme-section="light"] .marquee .marquee-content span {
+   color: var(--color-dark);
+}
+
+@media screen and (max-width: 540px) {
+   .marquee .marquee-content span {
+      font-size: calc(var(--title-size) * 0.5);
+   }
+}
+
+/* ------------------------- Section - Home Intro Marquee -------------------------------------------------- */
+
+.section-home-intro-marquee .gradient-circle-wrap .gradient-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1, 0.75);
+    opacity: 0.2;
+    z-index: 3;
+}
+
+/* ------------------------- Section - techer Marquee -------------------------------------------------- */
+
+.section-techer-marquee {
+    &.section  {
+          position: relative;  
+          padding-top: calc(var(--section-padding) * 1.5);
+          padding-bottom: 0;
+    }
+    .gradient-circle-wrap .gradient-circle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1, 0.75);
+        opacity: 0.5;
+        z-index: 0;
+    }
+}
+
+
+
+
+/* ------------------------- Gradient Circle -------------------------------------------------- */
+
+.gradient-circle-wrap {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+ 
+.gradient-circle {
+    --gradient-size: calc(var(--title-size) * 9);
+    width: var(--gradient-size);
+    height: var(--gradient-size);
+    background: radial-gradient(circle, var(--color-secondary) 0%, rgba(var(--color-dark-rgb), 0) 66%);
+    position: absolute;
+    opacity: 0.4;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(5vw);
+}
+ 
+.gradient-circle-1 {
+    top: 0;
+    left: var(--single-grid-col);
+    transform: translate(-50%, -50%);
+}
+ 
+.gradient-circle-2 {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+}

@@ -24,12 +24,101 @@
 	--text-inverse: #e8eddf; // Text inverse - наприклад, може використовуватися для налаштування кольору тексту на темному фоні.
 	// =================================================================
 	
-	--color-dark-rgb: 22, 0, 85;
-	--color-black-rgb: 27, 18, 52;
-	--color-dark: rgba(var(--color-dark-rgb), 1);
-	--color-black: rgba(var(--color-black-rgb), 1);
-	--color-primary-dark: #640008;
+	// --color-dark-rgb: 22, 0, 85;
+	// --color-black-rgb: 27, 18, 52;
+	// --color-dark: rgba(var(--color-dark-rgb), 1);
+	// --color-black: rgba(var(--color-black-rgb), 1);
+	// --color-primary-dark: #640008;
 	
-	--animation-bounce-smooth: 0.6s cubic-bezier(0.5, 1.5, 0.5, 1);
-	--animation-smooth: 0.5s cubic-bezier(1, 0, .25, 1);
+	// --animation-bounce-smooth: 0.6s cubic-bezier(0.5, 1.5, 0.5, 1);
+	// --animation-smooth: 0.5s cubic-bezier(1, 0, .25, 1);
+}
+
+
+/* ------------------------- Variables -------------------------------------------------- */
+
+:root {
+
+   --color-dark-rgb: 28, 29, 36;
+   --color-dark: rgba(var(--color-dark-rgb), 1);
+   --color-dark-tint: #22232B;
+
+   --bgColor-dark: rgba(var(--bgColor-dark-rgb), 1);
+   --bgColor-dark-rgb: 24, 24, 26;
+
+   --accent-color-rgb: 195, 0, 255; 
+   --accent-color: rgba(var(--accent-color-rgb), 1);
+
+   --color-light-rgb: 247, 247, 255;
+   --color-light: rgba(var(--color-light-rgb), 1);
+   --color-light-tint: #EFEFFF;
+
+   --color-white-rgb: 255, 255, 255;
+   --color-white: rgba(var(--color-white-rgb), 1);
+
+   --color-black-rgb: 0, 0, 0;
+   --color-black: rgba(var(--color-black-rgb), 1);
+
+   --color-primary-rgb: 179, 178, 251;
+   --color-primary: rgba(var(--color-primary-rgb), 1);
+
+   --color-secondary-rgb: 194, 65, 233;
+   --color-secondary: rgba(var(--color-secondary-rgb), 0.45);
+
+   --color-glow-rgb: 153, 121, 255;
+   --color-glow: rgba(var(--color-glow-rgb), 1);
+
+   --color-beige-rgb: 254, 249, 240;
+   --color-beige: rgba(var(--color-beige-rgb), 1);
+
+   --color-gray: #C7BFB2;
+   --color-lightgray: var(--color-light-tint);
+
+   --color-border: rgba(var(--color-dark-rgb), 0.35);
+   --color-border-light: rgba(var(--color-white-rgb), 0.45);
+   --color-text: rgba(var(--color-dark-rgb), 0.75);
+   --color-text-light: rgba(var(--color-white-rgb), 0.75);
+
+   --color-alert-error: #dc122d;
+   --color-alert-success: #46d054;
+
+   --animation-primary: 0.3s cubic-bezier(.5, 0, .25, 1);
+   --animation-smooth: 0.5s cubic-bezier(1, 0, .25, 1);
+   --animation-theme: 0.3s ease-in-out;
+   --animation-nav-smooth: 0.5s cubic-bezier(.5, 0, .25, 1);
+   --animation-cursor: 0.4s cubic-bezier(0.5, 0, .25, 1);
+   --animation-bounce: 0.4s cubic-bezier(0.35, 1.5, 0.6, 1);
+   --animation-bounce-smooth: 0.6s cubic-bezier(0.5, 1.5, 0.5, 1);
+
+   --section-padding: var(--title-size);
+   --container-padding: calc(var(--col-gap) * 1.5);
+   --gap-padding: min(4vw, 4em);
+
+   --row-gap: calc(var(--title-size) * 0.3);
+   --col-gap: calc(var(--title-size) * 0.3);
+   --col-gap-small: calc(var(--title-size) * 0.1);
+
+   --title-size: clamp(5em, 7.5vw, 7.5em);
+
+   --border-radius: calc(var(--btn-height) * 0.5);
+
+   --btn-height: 2.6em;
+   --nav-bar-height: calc(var(--btn-height) + (var(--row-gap) * 2));
+}
+
+[data-theme-section="dark"] {
+   --color-border: rgba(var(--color-white-rgb), 0.45);
+   --color-text: rgba(var(--color-white-rgb), 0.75);
+}
+
+@media screen and (max-width: 1024px) {
+   :root {
+      --container-padding: clamp(1.25em, 4vw, 2.5em);
+   }
+}
+
+@media screen and (max-width: 860px) {
+   :root {
+      --nav-bar-height: calc(var(--btn-height) + (var(--container-padding) * 2));
+   } 
 }

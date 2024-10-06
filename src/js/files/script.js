@@ -34,7 +34,13 @@ if (scrollbar.length > 1) {
 const speedElements = document.querySelectorAll('[data-scroll-speed]');
 
 lenis.on('scroll', (e) => {
-  // Обновляем ScrollTrigger
+  $('.flickity-carousel').each(function() {
+    var flkty = $(this).data('flickity');
+    if (flkty) {
+        flkty.resize(); // Вызываем resize только если Flickity инициализирован
+    }
+});
+  
   ScrollTrigger.update();
 
   // Применяем parallax эффект для элементов
@@ -332,7 +338,7 @@ function initMagneticButtons() {
     });
     }
   
-    }; // END : If screen is bigger as 540 px do magnetic
+    }; // END : Если экран больше 540 px, сделайте магнитный
   
 // Получаем все кнопки с классом .btn-click.magnetic
 document.querySelectorAll('.hello__btn.magnetic').forEach(function(btn) {
@@ -355,7 +361,7 @@ document.querySelectorAll('.hello__btn.magnetic').forEach(function(btn) {
         gsap.to(btnTextInner, {
           duration: 0.3,
           startAt: { color: "#FFFFFF" },
-          color: "#ff0000",
+          color: "#c300ff",
           ease: Power3.easeIn,
         });
       }
@@ -460,7 +466,7 @@ supplementItems.forEach(item => {
   });
 });
 
-//========================================================================================================================================================
+//========  наезд блока ================================================================================================================================================
 // Получаем блоки
 const videoBlock = document.querySelector('.second-block__video');
 const supplementBlock = document.querySelector('.supplement');
@@ -474,3 +480,253 @@ ScrollTrigger.create({
    // markers: true, // Включаем маркеры для отладки (можно удалить после)
     
 });
+
+//========================================================================================================================================================
+/**
+* Marquee on Scroll Direction
+*/
+function initMarqueeScrollV2() {
+
+  $('[data-marquee-target]').each(function(){
+
+     let marquee = $(this);
+     
+     let marqueeItemsWidth = marquee.find(".marquee-content").width();
+     let marqueeSpeed = marquee.attr('data-marquee-speed') * (marqueeItemsWidth / $(window).width());
+
+     // Speed up Marquee on Tablet & Mobile
+     if($(window).width() <= 540){
+        marqueeSpeed = marqueeSpeed * 0.25;
+     } else if($(window).width() <= 1024){
+        marqueeSpeed = marqueeSpeed * 0.5;
+     }
+
+     let marqueeDirection = 1;
+     let marqueeContent = gsap.to(marquee.find('.marquee-content'), {xPercent: -100, repeat: -1, duration: marqueeSpeed, ease: "linear", paused: true}).totalProgress(0.5);
+  
+     gsap.set(marquee.find(".marquee-content"), {xPercent: 50});
+
+     ScrollTrigger.create({
+        trigger: marquee,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate(self) {
+           if (self.direction !== marqueeDirection) {
+              marqueeDirection *= -1;
+              if(marquee.attr('data-marquee-direction') == 'right') {
+                 gsap.to([marqueeContent], { timeScale: (marqueeDirection * -1), overwrite: true });
+              } else {
+                 gsap.to([marqueeContent], { timeScale: marqueeDirection, overwrite: true });
+              }
+           }
+           self.direction === -1 ? marquee.attr('data-marquee-status', 'normal') : marquee.attr('data-marquee-status', 'inverted');
+        },
+        onEnter: () => marqueeContent.play(),
+        onEnterBack: () => marqueeContent.play(),
+        onLeave: () => marqueeContent.pause(),
+        onLeaveBack: () => marqueeContent.pause()
+     });
+
+     // Extra speed on scroll
+     marquee.each(function () {
+
+        let triggerElement = $(this);
+        let targetElement = $(this).find('.marquee-scroll');
+        let marqueeScrollSpeed = $(this).attr('data-marquee-scroll-speed');
+     
+        let tl = gsap.timeline({
+           scrollTrigger: {
+              trigger: $(this),
+              start: "0% 100%",
+              end: "100% 0%",
+              scrub: 0
+           }
+        });   
+
+        if(triggerElement.attr('data-marquee-direction') == 'left') {         
+           tl.fromTo(targetElement, {
+              x: marqueeScrollSpeed + "vw",
+           }, {
+              x: marqueeScrollSpeed * -1 + "vw",
+              ease: "none"
+           });
+        }
+
+        if(triggerElement.attr('data-marquee-direction') == 'right') {         
+           tl.fromTo(targetElement, {
+              x: marqueeScrollSpeed * -1 + "vw",
+           }, {
+              x: marqueeScrollSpeed + "vw",
+              ease: "none"
+           });
+        }
+     });
+  });
+}
+initMarqueeScrollV2()
+
+//========================================================================================================================================================
+/**
+* Flickity Slider
+*/
+
+function initScripts() {
+  // Остановка Lenis скролла перед инициализацией Flickity
+  if (typeof lenis !== 'undefined') {
+      lenis.stop();  // Останавливаем Lenis
+  }
+  // Инициализация слайдера
+ // initFlickitySlider();
+  // Возобновляем Lenis после инициализации
+  if (typeof lenis !== 'undefined') {
+      lenis.start(); // Возобновляем Lenis
+  }
+}
+
+  // Инициализация после полной загрузки страницы
+  window.addEventListener('load', initScripts);
+  
+  var elem = document.querySelector('.flickity-carousel');
+  var flkty = new Flickity( elem, {
+    // options
+    watchCSS: true,
+    contain: true,
+    wrapAround: true,
+    dragThreshold: 10,
+    prevNextButtons: false,
+    pageDots: false,
+    cellAlign: 'center',
+    selectedAttraction: 0.015,
+    friction: 0.25,
+    percentPosition: true,
+    freeScroll: false,
+    adaptiveHeight: true,
+    imagesLoaded: true,
+});
+  
+
+
+
+
+
+
+//function initFlickitySlider() {
+
+  // Source
+  // https://flickity.metafizzy.co/
+
+  // Slider Row
+//   $('[data-flickity-slider-type="cards"]').each(function (index) {
+
+//     var sliderIndexID = 'flickity-slider-type-cards-id-' + index;
+//     $(this).attr('id', sliderIndexID);
+
+//     var sliderThis = $(this);
+
+//     var flickitySliderGroup = document.querySelector('#' + sliderIndexID + ' .flickity-carousel');
+//     var flickitySlider = sliderThis.find('.flickity-carousel').flickity({
+//        // options
+//        watchCSS: true,
+//        contain: true,
+//        wrapAround: true,
+//        dragThreshold: 10,
+//        prevNextButtons: false,
+//        pageDots: false,
+//        cellAlign: 'center',
+//        selectedAttraction: 0.015,
+//        friction: 0.25,
+//        percentPosition: true,
+//        freeScroll: false,
+//     });
+
+//  });
+
+// Инициализация слайдера Flickity
+// Функция для инициализации Flickity с учетом Lenis
+// function initFlickitySlider() {
+//   $('.single-flickity-slider').each(function (index) {
+//       var sliderIndexID = 'flickity-slider-id-' + index;
+//       $(this).attr('id', sliderIndexID);
+
+//       var sliderThis = $(this);
+//       var flickitySliderMain = sliderThis.find('.flickity-carousel');
+
+//       if (!flickitySliderMain.length) {
+//           console.error('Не найден элемент .flickity-carousel для инициализации');
+//           return;
+//       }
+
+//       // Инициализация Flickity
+//       var flickityMain = flickitySliderMain.flickity({
+//           watchCSS: true,
+//           contain: true,
+//           wrapAround: true,
+//           dragThreshold: 10,
+//           prevNextButtons: false,
+//           pageDots: false,
+//           cellAlign: 'center',
+//           selectedAttraction: 0.015,
+//           friction: 0.25,
+//           percentPosition: true,
+//           freeScroll: true,
+//           adaptiveHeight: true,
+//           imagesLoaded: true
+//       });
+
+//       var flkty = flickityMain.data('flickity');
+//       if (!flkty) {
+//           console.error('Flickity не инициализировался');
+//           return;
+//       }
+//       console.log('Flickity инициализировался:', flkty);
+
+//       flkty.on('ready', function () {
+//           // Код для кнопок и обновления состояния
+//           var prevButton = sliderThis.find('.flickity-btn-prev').on('click', function () {
+//               flickityMain.flickity('previous');
+//           });
+
+//           var nextButton = sliderThis.find('.flickity-btn-next').on('click', function () {
+//               flickityMain.flickity('next');
+//           });
+
+//           flkty.on('change', function () {
+//               updatePagination();
+//           });
+
+//           flkty.on('dragStart', function () {
+//               flickitySliderMain.css("pointer-events", "none");
+//           });
+
+//           flkty.on('dragEnd', function () {
+//               flickitySliderMain.css("pointer-events", "auto");
+//           });
+
+//           var inviewColumns = window.getComputedStyle(flickitySliderMain[0]).getPropertyValue('--columns');
+//           if (!inviewColumns || isNaN(parseInt(inviewColumns))) {
+//               console.warn('CSS-свойство --columns не задано или некорректно.');
+//               inviewColumns = 1; // Значение по умолчанию
+//           }
+//           console.log('Количество видимых слайдов:', inviewColumns);
+
+//           function updatePagination() {
+//               if (!flkty.cells[flkty.selectedIndex - 1]) {
+//                   prevButton.attr('disabled', 'disabled');
+//                   nextButton.removeAttr('disabled');
+//               } else if (!flkty.cells[flkty.selectedIndex + parseInt(inviewColumns)]) {
+//                   nextButton.attr('disabled', 'disabled');
+//                   prevButton.removeAttr('disabled');
+//               } else {
+//                   prevButton.removeAttr('disabled');
+//                   nextButton.removeAttr('disabled');
+//               }
+//           }
+
+//           updatePagination();
+
+//           $(window).on('resize', function () {
+//               updatePagination();
+//           });
+//       });
+//   });
+// }
