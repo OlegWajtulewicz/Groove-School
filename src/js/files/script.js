@@ -70,7 +70,7 @@ function handleScrollElements() {
       const scrollY = window.scrollY || window.pageYOffset;
       const rect = element.getBoundingClientRect();
 
-      const buffer = 190;
+      const buffer = 150;
       // Проверяем, находится ли элемент в зоне видимости
       if (rect.top < window.innerHeight + buffer && rect.bottom > -buffer) {
         const translateY = scrollY * speed;

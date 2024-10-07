@@ -14,7 +14,7 @@
     // .testimonial-slider__wrapper-slider
 
     &__wrapper-slider {
-        min-height: 100%;
+      width: 100vw;
     }
 }
 
@@ -126,6 +126,7 @@
     cursor: move;
     cursor: -webkit-grab;
     cursor: grab;
+    
  }
  
  /* Turn Flickity ON */

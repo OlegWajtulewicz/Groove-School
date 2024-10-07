@@ -136,8 +136,27 @@
     @include adaptiveValue("padding-bottom", 40, 25, 3, 767, 320);
     @include adaptiveValue("padding-left", 40, 15, 3, 767, 320);
     @include adaptiveValue("padding-right", 40, 15, 3, 767, 320);
-
+    &__back {
+        background-color: rgba(var(--color-black-rgb), 0.5);
+        pointer-events: all;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--animation-primary-ease-in);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        &.active  {
+            opacity: 1;
+            visibility: visible;
+            z-index: 4;
+        }
+    }
 }
+
 .menu-nav {
     color: $textColor;
     display: flex;

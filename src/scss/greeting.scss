@@ -1,0 +1,76 @@
+.greeting {
+    padding-top: 5em;
+    position: relative;
+    z-index: 2;
+    
+    &::before{
+        content:'';
+        position: absolute;
+        top: toRem(-2);
+        left: -5%;
+        width: 120%;
+        height: 12em;
+        z-index: 0;
+        pointer-events: none;
+       // transform: translateY(0%) rotate(-4deg);
+        transform-origin: left top;
+        pointer-events: none;
+		//background-image: url("@img/texture-dark.jpg");
+        background-color: $bgColor;
+		// background-position: center center;
+		// background-repeat: no-repeat;
+		// background-size: cover;
+		//opacity: 0.75;
+
+    }
+
+    // .greeting__container
+
+    &__container {
+        display: grid;
+        justify-items: end;
+        padding-top: 2.5em;
+        @include adaptiveValue("padding-left", 40, 10, 3, 481, 320);
+        @include adaptiveValue("padding-right", 40, 10, 3, 481, 320);
+    }
+
+    // .greeting__title
+
+    &__title {
+        position: relative;
+        color: $textColor;
+        text-align: right;
+        float: right;
+        top: -2.5em;
+        z-index: 2;
+    }
+
+    // .greeting__subtitle
+
+    &__subtitle {
+        color: #fffef8;
+        font-size: 0.75rem;
+        opacity: 0.6;
+    }
+
+    // .greeting__text
+
+    &__text {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $textColor;
+        line-height: 150%;
+        max-width: 80%;
+        opacity: 0.9;
+        font-weight: 300;
+        text-align: center;
+        @include adaptiveValue("font-size", 22, 16, 2, 767, 320);
+        @media (max-width:$mobileSmall){
+            max-width: 100%; 
+        }
+    }
+}
+
