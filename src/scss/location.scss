@@ -79,6 +79,7 @@
         line-height: 150%;
         opacity: 0.8;
         font-weight: 200;
+        text-wrap: balance;
         @include adaptiveValue("gap", 20, 10);
         @include adaptiveValue("font-size", 18, 12);
         @media (max-width:$mobileSmall){

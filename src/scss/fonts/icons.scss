@@ -28,7 +28,7 @@
   }
   
   [class^="icon-"]:before,
-   [class*=" icon-"]:before {
+  [class*=" icon-"]:before {
 	/* use !important to prevent issues with browser extensions that change fonts */
 	font-family: 'icomoon' !important;
 	// speak: never;
@@ -38,294 +38,80 @@
 	text-transform: none;
 	line-height: 1;
   
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-  }
+/* Better Font Rendering =========== */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
   
-  .icon-Alert:before {
-	content: "\e900";
-  }
-  .icon-Alert-octagon:before {
-	content: "\e901";
-  }
-  .icon-Attach:before {
-	content: "\e902";
-  }
-  .icon-Back:before {
-	content: "\e903";
-  }
-  .icon-bag:before {
-	content: "\e904";
-  }
-  .icon-Bell:before {
-	content: "\e905";
-  }
-  .icon-Block:before {
-	content: "\e906";
-  }
-  .icon-burger-menu:before {
-	content: "\e907";
-  }
-  .icon-Calendar:before {
-	content: "\e908";
-  }
-  .icon-Card:before {
-	content: "\e909";
-  }
-  .icon-cart:before {
-	content: "\e90a";
-  }
-  .icon-Chat:before {
-	content: "\e90b";
-  }
-  .icon-check:before {
-	content: "\e90c";
-  }
-  .icon-Check-round:before {
-	content: "\e90d";
-  }
-  .icon-Clock:before {
-	content: "\e90e";
-  }
-  .icon-Closed-Eye:before {
-	content: "\e90f";
-  }
-  .icon-Close-round:before {
-	content: "\e910";
-  }
-  .icon-Comment:before {
-	content: "\e911";
-  }
-  .icon-Convert:before {
-	content: "\e912";
-  }
-  .icon-Cross:before {
-	content: "\e913";
-  }
-  .icon-danger:before {
-	content: "\e914";
-  }
-  .icon-delete:before {
-	content: "\e915";
-  }
-  .icon-dislike:before {
-	content: "\e916";
-  }
-  .icon-dribbble:before {
-	content: "\e917";
-  }
-  .icon-Envelope-opened:before {
-	content: "\e918";
-  }
-  .icon-Expand:before {
-	content: "\e919";
-  }
-  .icon-External-Link:before {
-	content: "\e91a";
-  }
-  .icon-Eyes:before {
-	content: "\e91b";
-  }
-  .icon-Facebook:before {
-	content: "\e91c";
-  }
-  .icon-figma:before {
-	content: "\e91d";
-  }
-  .icon-Files:before {
-	content: "\e91e";
-  }
-  .icon-filter-1:before {
-	content: "\e91f";
-  }
-  .icon-filter-2:before {
-	content: "\e920";
-  }
-  .icon-Fluid-Vertical:before {
-	content: "\e921";
-  }
-  .icon-Forward:before {
-	content: "\e922";
-  }
-  .icon-github:before {
-	content: "\e923";
-  }
-  .icon-Google:before {
-	content: "\e924";
-  }
-  .icon-google-hangouts:before {
-	content: "\e925";
-  }
-  .icon-grid:before {
-	content: "\e926";
-  }
-  .icon-hanger:before {
-	content: "\e927";
-  }
-  .icon-Heart:before {
-	content: "\e928";
-  }
-  .icon-History:before {
-	content: "\e929";
-  }
-  .icon-Home:before {
-	content: "\e92a";
-  }
-  .icon-Info:before {
-	content: "\e92b";
-  }
-  .icon-Instagram:before {
-	content: "\e92c";
-  }
-  .icon-Instagram-filled:before {
-	content: "\e92d";
-  }
-  .icon-iPhone:before {
-	content: "\e92e";
-  }
-  .icon-Layouts:before {
-	content: "\e92f";
-  }
-  .icon-like:before {
-	content: "\e930";
-  }
-  .icon-Linked-In:before {
-	content: "\e931";
-  }
-  .icon-list:before {
-	content: "\e932";
-  }
-  .icon-Lock:before {
-	content: "\e933";
-  }
-  .icon-Login:before {
-	content: "\e934";
-  }
-  .icon-Logout:before {
-	content: "\e935";
-  }
-  .icon-Mail:before {
-	content: "\e936";
-  }
-  .icon-Mark:before {
-	content: "\e937";
-  }
-  .icon-Mention:before {
-	content: "\e938";
-  }
-  .icon-Messanger:before {
-	content: "\e939";
-  }
-  .icon-mic:before {
-	content: "\e93a";
-  }
-  .icon-Minus:before {
-	content: "\e93b";
-  }
-  .icon-Minus-check:before {
-	content: "\e93c";
-  }
-  .icon-off:before {
-	content: "\e93d";
-  }
-  .icon-on:before {
-	content: "\e93e";
-  }
-  .icon-outline:before {
-	content: "\e93f";
-  }
-  .icon-outline1:before {
-	content: "\e940";
-  }
-  .icon-paypal:before {
-	content: "\e941";
-  }
-  .icon-Person:before {
-	content: "\e942";
-  }
-  .icon-Pin:before {
-	content: "\e943";
-  }
-  .icon-Play:before {
-	content: "\e944";
-  }
-  .icon-Plus:before {
-	content: "\e945";
-  }
-  .icon-Reload:before {
-	content: "\e946";
-  }
-  .icon-Right:before {
-	content: "\e947";
-  }
-  .icon-Right-chevron:before {
-	content: "\e948";
-  }
-  .icon-rss:before {
-	content: "\e949";
-  }
-  .icon-search:before {
-	content: "\e94a";
-  }
-  .icon-Share:before {
-	content: "\e94b";
-  }
-  .icon-share-arrow:before {
-	content: "\e94c";
-  }
-  .icon-Shield:before {
-	content: "\e94d";
-  }
-  .icon-solid:before {
-	content: "\e94e";
-  }
-  .icon-Star:before {
-	content: "\e94f";
-  }
-  .icon-telegram:before {
-	content: "\e950";
-  }
-  .icon-Twitter:before {
-	content: "\e951";
-  }
-  .icon-Unlock:before {
-	content: "\e952";
-  }
-  .icon-Up:before {
-	content: "\e953";
-  }
-  .icon-up-down-select:before {
-	content: "\e954";
-  }
-  .icon-Upload:before {
-	content: "\e955";
-  }
-  .icon-Vertical:before {
-	content: "\e956";
-  }
-  .icon-viber:before {
-	content: "\e957";
-  }
-  .icon-VKontakte:before {
-	content: "\e958";
-  }
-  .icon-wechat:before {
-	content: "\e959";
-  }
-  .icon-Whatsapp:before {
-	content: "\e95a";
-  }
-  .icon-YouTube:before {
-	content: "\e95b";
-  }
-  .icon-moon:before {
-	content: "\e95c";
-  }
-  .icon-sun:before {
-	content: "\e95d";
-  }
-  .icon-quote:before {
-	content: "\e95e";
-	color: #fff;
-  }  
+.icon-Attach:before {
+  content: "\e900";
+}
+.icon-Bell:before {
+  content: "\e901";
+}
+.icon-Calendar:before {
+  content: "\e902";
+}
+.icon-External-Link:before {
+  content: "\e903";
+}
+.icon-Facebook:before {
+  content: "\e904";
+}
+.icon-google-hangouts:before {
+  content: "\e905";
+}
+.icon-Heart:before {
+  content: "\e906";
+}
+.icon-Home:before {
+  content: "\e907";
+}
+.icon-Instagram:before {
+  content: "\e908";
+}
+.icon-Instagram-filled:before {
+  content: "\e909";
+}
+.icon-iPhone:before {
+  content: "\e90a";
+}
+.icon-Mail:before {
+  content: "\e90b";
+}
+.icon-Mark:before {
+  content: "\e90c";
+}
+.icon-Mention:before {
+  content: "\e90d";
+}
+.icon-Messanger:before {
+  content: "\e90e";
+}
+.icon-Minus:before {
+  content: "\e90f";
+}
+.icon-Pin:before {
+  content: "\e910";
+}
+.icon-Plus:before {
+  content: "\e911";
+}
+.icon-Share:before {
+  content: "\e912";
+}
+.icon-share-arrow:before {
+  content: "\e913";
+}
+.icon-solid:before {
+  content: "\e914";
+}
+.icon-telegram:before {
+  content: "\e915";
+}
+.icon-viber:before {
+  content: "\e916";
+}
+.icon-Whatsapp:before {
+  content: "\e917";
+}

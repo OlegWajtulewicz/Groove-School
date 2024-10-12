@@ -1,3 +1,180 @@
 //====================================================================================================
+.footer {
+    background-color: var(--color-text);
+    border-top: 1px solid rgba(238, 238, 238, 0.151);
+    position: relative;
+    
+    // .footer__container
+
+    &__container {
+        padding: 3em 2.5em;
+        padding-bottom: 0;
+        @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
+        @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
+        @include adaptiveValue("padding-top", 80, 30, 3, 481, 320);
+    }
+
+    // .footer__wrapper
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding-bottom: 1.5em;
+        @include adaptiveValue("padding-bottom", 24, 20, 3, 767, 320);
+        @include adaptiveValue("gap", 48, 16);
+        @media (max-width:$mobile){
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+    }
+
+    // .footer__title-block
+
+    &__title-block {
+        color: $textColor;
+        white-space: nowrap;
+    }
+    &__title {
+        white-space: nowrap;
+    }
+
+    // .footer__post
+
+    &__post {
+        position: relative;
+        font-size: toRem(26);
+        line-height: 150%;
+        white-space: nowrap;
+        position: relative;
+        margin: 2em 0;
+        border: 1px solid #fffef831;
+        width: max-content;
+        font-size: 1.25rem;
+        padding: 1em 2em;
+        border-radius: 2em;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all var(--animation-primary);
+        will-change: transform;
+        @include adaptiveValue("font-size", 26, 19, 3, 481, 320);
+        &::before{
+            content:'';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: $textColor;
+            transition: .4s all ease;
+            z-index: -1;
+        }
+        @media (any-hover: hover){
+            &:hover{
+                color: #000;
+                
+            }
+        }
+        @media (any-hover: hover){
+            &:hover{
+                &::before{
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    // .footer__social
+
+    &__social {
+        padding: 1.5em 0;
+    }
+
+    // .footer__social-item
+
+    &__social-item {
+    }
+
+    // .footer__logo
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include adaptiveValue("gap", 32, 16);
+    }
+
+    // .footer__logo-link
+
+    &__logo-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(238, 238, 238, 0.151);
+        border-radius: toRem(18);
+        color: $textColor;
+        font-size: toRem(120);
+        font-weight: 700;
+        width: toRem(170);
+        height: toRem(170);
+        max-width: 8em;
+        transition: all var(--animation-primary);
+        @media (any-hover: hover){
+            &:hover{
+                transform: translateY(-0.05em);
+              //  border-color: rgba(var(--accent-color-rgb), 0.25);
+               
+            }
+        }
+        &.black {
+            background-color: #000;
+        }
+        @media (max-width: 380px) {
+            width: toRem(120);
+            height: toRem(120);
+            font-size: toRem(80);
+        }
+    }
+
+    // .footer__copyright
+
+    &__copyright {
+        display: flex;
+        justify-content: space-between;
+        padding: 2em 0;
+        border-top: 1px solid rgba(238, 238, 238, 0.151);
+        color: $textColor;
+        @include adaptiveValue("font-size", 16, 12, 3, 481, 320);
+    }
+
+    // .footer__link-click
+
+    &__link-click {
+        position: relative;
+        line-height: 120%;
+        &::after{
+            content:'';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: toRem(1);
+            background-color: rgba(var(--accent-color-rgb), 0.65);
+            transform: scaleX(0) rotate(0.001deg);
+            transform-origin: right top;
+            transition: transform var(--animation-primary);
+        }
+        @media (any-hover: hover){
+            &:hover{
+                &::after{
+                    transform: scaleX(1) rotate(0.001deg);
+                    transform-origin: left top;
+                    transition: transform var(--animation-primary);
+                }
+            }
+        }
+    }
+}
+
+
 
 //====================================================================================================

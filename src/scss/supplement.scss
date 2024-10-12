@@ -148,6 +148,7 @@
     // .body-supplement__descr 
 
     &__descr {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -160,11 +161,19 @@
         @include adaptiveValue("font-size", 22, 12 );
         &.accent {
             opacity: 1;
+            .gradient-circle {
+                opacity: 1;
+            }
         }
         &.no-hover {
             opacity: 0.15;
             filter: grayscale(1) contrast(1);
             transform: scale(0.9) rotate(0.001deg);
+        }
+        .gradient-circle {
+            height: 100%;
+            width: 100%;
+            z-index: -1;
         }
     }
     &__descr-circle {

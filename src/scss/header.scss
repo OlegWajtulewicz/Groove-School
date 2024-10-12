@@ -35,6 +35,7 @@
     }
 
 }
+
 .logo {
     display: flex;
     align-items: flex-end;
@@ -42,10 +43,12 @@
     pointer-events: all;
     cursor: pointer !important;
     ._header-scroll & {
+        width: toRem(74) !important;
         gap: 0;
     }
     @media (max-width:$mobile) {
         gap: 0;
+        width: toRem(74) !important;
     }
     
     // .logo__word-1
@@ -65,52 +68,51 @@
         overflow: hidden;
        
     }
+    $starting-opacity: 1;
+    $starting-translateX: -100%;
+    $transition-duration: 0.5s;
 
     // .logo__word-1--small
 
     &__word-1--small,
     &__word-2--small {
         height: 1.8em;
-        will-change: transform;
-       // will-change: width;
+        width: 1.4375rem;
+        z-index: 0;
+        will-change: transform, opacity, width;
         transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1);
         transform: rotateY(0) translate3d(0, 0, 0) rotate(0.001deg);
-        z-index: 0;
-        width: 23px;
+        
+        display: block;
+        opacity: $starting-opacity;
+      //  transition: opacity $transition-duration ease, transform $transition-duration ease, display .4s allow-discrete;
+        
         ._header-scroll & {
-            transform: rotateY(90deg) translate3d(0, 0, 0) rotate(0.001deg);
+          //  transform: rotateY(90deg) translateX($starting-translateX) translate3d(0, 0, 0) rotate(0.001deg);
             width: 0;
-            transition: width 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+            opacity: 0;
+          //  transition: width 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+          //  transition: opacity .4s, display .4s allow-discrete;
+            display: none;
+            
         }
         @media (max-width:$mobile) {
             width: 0;
+            display: none;
+          //  transition: opacity .4s, display .4s allow-discrete;
         }
 
         &.big {
             height: 2.3em; 
         }
         &.logo-links  {
-            will-change: transform;
-            transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+            transition: transform 0.7s cubic-bezier(0.5, 0.5, 0, 1);//
             transform: translateX(-100%) scaleY(1.04) rotate(0.001deg) !important;
             width: 0;
+          //  transition: opacity .4s, display .4s allow-discrete;
         }
     }
 
-    // .logo__word-2
-
-    &__word-2 {
-    }
-
-    // .logo__word-2--big
-
-    &__word-2--big {
-    }
-
-    // .logo__word-2--small
-
-    &__word-2--small {
-    }
 }
 //========================================================================================================================================================
 
@@ -124,10 +126,7 @@
     background-color: #535353;
     pointer-events: none;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    //height: 100%;
-    overflow: auto;
     border-radius: 0 0 2em 2em;
-
     background: linear-gradient(140deg, #242424, #2c013b);
     background-repeat: no-repeat;
     background-size: 200%;
@@ -136,20 +135,27 @@
     @include adaptiveValue("padding-bottom", 40, 25, 3, 767, 320);
     @include adaptiveValue("padding-left", 40, 15, 3, 767, 320);
     @include adaptiveValue("padding-right", 40, 15, 3, 767, 320);
+    @media (max-width:$tablet){
+        height: 100%;
+        overflow-y: auto;
+    }
     &__back {
         background-color: rgba(var(--color-black-rgb), 0.5);
         pointer-events: all;
         opacity: 0;
         visibility: hidden;
-        transition: var(--animation-primary-ease-in);
+        transition: var(--animation-bounce-smooth) .4s;
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         height: 100%;
         width: 100%;
         &.active  {
+            transition: var(--animation-bounce-smooth) .2s;
             opacity: 1;
             visibility: visible;
             z-index: 4;
@@ -177,7 +183,8 @@
     height: 100%;
     color: $textColor;
     display: flex;
-    @media (max-width:$mobile){
+   
+    @media (max-width:$tablet){
         .col:first-child {
             display: none;
         }
@@ -188,12 +195,18 @@
     flex: 1;
     padding: 1em 0;
 }
+.menu-cols .col .social-menu {
+    display: none;
+    @media (max-width:$tablet){
+        display: flex;
+    }
+}
 
 .menu-link {
     position: relative;
     width: max-content;
-    margin-bottom: 1em;
     padding-bottom: .5em;
+    @include adaptiveValue("margin-bottom", 12, 5, );
     &::after{
         content:'';
         position: absolute;
@@ -224,9 +237,13 @@
 }
 
 .menu-footer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: #fff;
+    @media (max-width:$tablet){
+        display: none;
+    }
 }
 .menu-divider {
     position: relative;

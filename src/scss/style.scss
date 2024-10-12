@@ -67,6 +67,9 @@ body {
 		background-color: $bgColor;
 	 	scrollbar-gutter: stable;
 		overflow: hidden;
+	.touch & {
+		overflow: visible;
+	}	
 	// Скролл заблоковано
 	.lock & {
 		overflow: hidden;
@@ -80,13 +83,21 @@ body {
 		transition: all .3s ease-in-out 1s;
     	opacity: 1;
 	}
+	.has-scroll-init & {
+		transition: all .3s ease-in-out 1s;
+    	opacity: 1;
+	}
+}
+main {
+	z-index: 1;
 }
 ::-webkit-scrollbar {
     width: toRem(5);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--inverse);
+    background: rgba(var(--accent-color-rgb), 0.7);
+	border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

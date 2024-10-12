@@ -41,4 +41,9 @@
     .lenis-smooth [data-scrollbar] {
        display: flex;
     }
- }
+}
+.scrollbar {
+   .toutch & {
+      display: none;
+   }
+}

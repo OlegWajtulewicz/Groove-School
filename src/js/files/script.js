@@ -209,8 +209,8 @@ document.addEventListener("DOMContentLoaded", function ()  {
         ease: "power2.out",
     });
 
-    tl.from(".menu-link, .btn", 
-        { opacity: 0,
+    tl.from(".menu-link, .btn, .social-menu", 
+        {   opacity: 0,
             y: 60,
             stagger: 0.05,
             duration: 0.75,
@@ -231,11 +231,13 @@ document.addEventListener("DOMContentLoaded", function ()  {
     
 
     function openMenu() {
+      document.querySelector(".menu-overlay__back").classList.add("active");
         document.querySelector(".menu-overlay").style.pointerEvents = "all";
         tl.play();
     }
 
     function closeMenu() {
+      document.querySelector(".menu-overlay__back").classList.remove("active");
         document.querySelector(".menu-overlay").style.pointerEvents = "none";
         tl.timeScale(1.5);
         tl.reverse();
@@ -479,7 +481,7 @@ supplementItems.forEach(item => {
 //========  наезд блока ================================================================================================================================================
 // Получаем блоки
 const videoBlock = document.querySelector('.second-block__video');
-const supplementBlock = document.querySelector('.supplement');
+//const supplementBlock = document.querySelector('.supplement');
 
 // Настраиваем ScrollTrigger
 ScrollTrigger.create({
@@ -490,6 +492,26 @@ ScrollTrigger.create({
    // markers: true, // Включаем маркеры для отладки (можно удалить после)
     
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (document.querySelector('.testimonial-slider__container')) {
+      gsap.to('.flickity-carousel', {
+          scrollTrigger: {
+              trigger: '.testimonial-slider',
+              start: "top bottom",
+              scrub: 1,
+          },
+          xPercent: -20,
+      });
+  }
+});
+
+
+
+
+
 
 //========================================================================================================================================================
 /**
@@ -581,6 +603,7 @@ initMarqueeScrollV2()
 */
 
 function initScripts() {
+  initLoader();
   // Остановка Lenis скролла перед инициализацией Flickity
   if (typeof lenis !== 'undefined') {
       lenis.stop();  // Останавливаем Lenis
@@ -605,7 +628,7 @@ function initScripts() {
     dragThreshold: 10,
     prevNextButtons: false,
     pageDots: false,
-    cellAlign: 'center',
+    cellAlign: 'left',
     selectedAttraction: 0.015,
     friction: 0.25,
     percentPosition: true,
@@ -614,129 +637,138 @@ function initScripts() {
     imagesLoaded: true,
 });
   
+//========================================================================================================================================================
 
 
 
 
+//  ScrollTrigger || LocomotiveScroll
 
-
-//function initFlickitySlider() {
-
-  // Source
-  // https://flickity.metafizzy.co/
-
-  // Slider Row
-//   $('[data-flickity-slider-type="cards"]').each(function (index) {
-
-//     var sliderIndexID = 'flickity-slider-type-cards-id-' + index;
-//     $(this).attr('id', sliderIndexID);
-
-//     var sliderThis = $(this);
-
-//     var flickitySliderGroup = document.querySelector('#' + sliderIndexID + ' .flickity-carousel');
-//     var flickitySlider = sliderThis.find('.flickity-carousel').flickity({
-//        // options
-//        watchCSS: true,
-//        contain: true,
-//        wrapAround: true,
-//        dragThreshold: 10,
-//        prevNextButtons: false,
-//        pageDots: false,
-//        cellAlign: 'center',
-//        selectedAttraction: 0.015,
-//        friction: 0.25,
-//        percentPosition: true,
-//        freeScroll: false,
-//     });
-
-//  });
-
-// Инициализация слайдера Flickity
-// Функция для инициализации Flickity с учетом Lenis
-// function initFlickitySlider() {
-//   $('.single-flickity-slider').each(function (index) {
-//       var sliderIndexID = 'flickity-slider-id-' + index;
-//       $(this).attr('id', sliderIndexID);
-
-//       var sliderThis = $(this);
-//       var flickitySliderMain = sliderThis.find('.flickity-carousel');
-
-//       if (!flickitySliderMain.length) {
-//           console.error('Не найден элемент .flickity-carousel для инициализации');
-//           return;
-//       }
-
-//       // Инициализация Flickity
-//       var flickityMain = flickitySliderMain.flickity({
-//           watchCSS: true,
-//           contain: true,
-//           wrapAround: true,
-//           dragThreshold: 10,
-//           prevNextButtons: false,
-//           pageDots: false,
-//           cellAlign: 'center',
-//           selectedAttraction: 0.015,
-//           friction: 0.25,
-//           percentPosition: true,
-//           freeScroll: true,
-//           adaptiveHeight: true,
-//           imagesLoaded: true
-//       });
-
-//       var flkty = flickityMain.data('flickity');
-//       if (!flkty) {
-//           console.error('Flickity не инициализировался');
-//           return;
-//       }
-//       console.log('Flickity инициализировался:', flkty);
-
-//       flkty.on('ready', function () {
-//           // Код для кнопок и обновления состояния
-//           var prevButton = sliderThis.find('.flickity-btn-prev').on('click', function () {
-//               flickityMain.flickity('previous');
-//           });
-
-//           var nextButton = sliderThis.find('.flickity-btn-next').on('click', function () {
-//               flickityMain.flickity('next');
-//           });
-
-//           flkty.on('change', function () {
-//               updatePagination();
-//           });
-
-//           flkty.on('dragStart', function () {
-//               flickitySliderMain.css("pointer-events", "none");
-//           });
-
-//           flkty.on('dragEnd', function () {
-//               flickitySliderMain.css("pointer-events", "auto");
-//           });
-
-//           var inviewColumns = window.getComputedStyle(flickitySliderMain[0]).getPropertyValue('--columns');
-//           if (!inviewColumns || isNaN(parseInt(inviewColumns))) {
-//               console.warn('CSS-свойство --columns не задано или некорректно.');
-//               inviewColumns = 1; // Значение по умолчанию
-//           }
-//           console.log('Количество видимых слайдов:', inviewColumns);
-
-//           function updatePagination() {
-//               if (!flkty.cells[flkty.selectedIndex - 1]) {
-//                   prevButton.attr('disabled', 'disabled');
-//                   nextButton.removeAttr('disabled');
-//               } else if (!flkty.cells[flkty.selectedIndex + parseInt(inviewColumns)]) {
-//                   nextButton.attr('disabled', 'disabled');
-//                   prevButton.removeAttr('disabled');
-//               } else {
-//                   prevButton.removeAttr('disabled');
-//                   nextButton.removeAttr('disabled');
-//               }
-//           }
-
-//           updatePagination();
-
-//           $(window).on('resize', function () {
-//               updatePagination();
-//           });
-//       });
+// function initSmoothScroll(container) {
+//   const scroll = new LocomotiveScroll({
+//       el: container.querySelector('[data-scroll-container]'),
+//       smooth: true,
+//       lerp: 0.1,
 //   });
+
+//   window.onresize = () => scroll.update();
+
+//   scroll.on("scroll", () => ScrollTrigger.update());
+
+//   ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+//       scrollTop(value) {
+//           return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+//       },
+//       getBoundingClientRect() {
+//           return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+//       },
+//       pinType: container.querySelector('[data-scroll-container]').style.transform ? "transform" : "fixed"
+//   });
+
+//   ScrollTrigger.defaults({
+//       scroller: document.querySelector('[data-scroll-container]'),
+//   });
+
+ 
+
+//   ScrollTrigger.addEventListener('refresh', () => scroll.update());
+
+//   ScrollTrigger.refresh();
 // }
+
+// // Запуск функции после загрузки DOM
+// document.addEventListener('DOMContentLoaded', () => {
+//   const container = document.body; // Вы можете указать конкретный контейнер, если нужно
+//   initSmoothScroll(container);
+// });
+
+
+//========================================================================================================================================================
+function initLoader() {
+  var tl = gsap.timeline();
+
+
+  tl.call(function() {
+    lenis.stop();
+ });
+
+    tl.set(".transition", { 
+		yPercent: 0,
+        scale: 1,
+	  });
+
+    tl.set(".transition__screen .transition__word-2 .logo__word-2", {
+      yPercent: 0,
+    },"<");
+
+    tl.set(".transition__screen .transition__word-1 .logo__word-1", {
+      yPercent: 0,
+    },"<");
+
+    tl.set(".transition__screen", {
+        y: 0
+    });
+
+     tl.set("html", { 
+		  cursor: "wait"
+	  });
+
+    tl.set(".transition__word", {
+        yPercent: 0,  // Оставляем слова на месте
+    });
+
+    
+
+
+
+    tl.from(".transition__screen .transition__word-2 .logo__word-2", {
+        duration: 1.5,
+        yPercent: 150,
+        ease: "Expo.easeOut",
+        stagger: .066,
+    },"<0");
+
+    tl.from(".transition__screen .transition__word-1 .logo__word-1", {
+        duration: 1.5,
+        yPercent: 150,
+        ease: "Expo.easeOut",
+        stagger: .066,
+    },"<0.3"); 
+
+    tl.to(".transition__screen .transition__word", 
+      {   opacity: 1,
+          y: 130,
+          stagger: .096,
+          duration: 0.75,
+          ease: "power1.inOut",
+      },
+      "-=0.5",
+  );
+
+    tl.to(".transition", {
+        duration: 1,
+        yPercent: -100,  // Экран поднимается вверх
+        ease: "Expo.easeInOut",
+        delay: 0.5,  // Небольшая задержка перед уходом экрана
+        
+    },
+      "-=.3");
+
+    
+
+    
+
+    tl.set("html", { 
+		cursor: "auto"
+	},"< -0.3");
+
+  tl.call(function(){ 
+    lenis.start(); 
+    ScrollTrigger.refresh();
+ }, null, 3);	
+
+}
+
+
+
+

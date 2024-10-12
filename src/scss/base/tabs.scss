@@ -70,11 +70,11 @@
 		@include adaptiveValue("padding-top", 40, 20);
 		&[hidden] {
 			display: none;
-			@starting-style {
-			//	transition: transform var(--animation-bounce-smooth) 0.2s, opacity var(--animation-smooth) 0s allow-discrete;
-				transform: translateY(2em) rotate(0.001deg);
-				opacity: 0;
-			}
+			// @starting-style {
+			// //	transition: transform var(--animation-bounce-smooth) 0.2s, opacity var(--animation-smooth) 0s allow-discrete;
+			// 	transform: translateY(2em) rotate(0.001deg);
+			// 	opacity: 0;
+			// }
 			
 		}
 	}
