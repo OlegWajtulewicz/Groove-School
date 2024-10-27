@@ -5,7 +5,7 @@
 } */
 .section {
  //  position: relative;  
-  // padding-top: var(--section-padding);
+   padding-top: var(--section-padding);
    padding-bottom: var(--section-padding);
 }
 .marquee-group{
@@ -107,7 +107,8 @@
     &.section  {
           position: relative;  
           padding-top: calc(var(--section-padding) * 1.5);
-          padding-bottom: 0;
+          padding-bottom: calc(var(--section-padding) * 1.5);
+         // padding-bottom: 0;
     }
     .gradient-circle-wrap .gradient-circle {
         position: absolute;

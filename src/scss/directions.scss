@@ -51,5 +51,34 @@
         padding-top: toRem(20);
         @include adaptiveValue("padding-right", 40, 0);
     }
+    &__body-item {
+        padding: 5em 0;
+        border-radius: 4vh;
+        background-color: rgba(var(--color-glow-rgb), .2);
+        @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
+        @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
+    }
+    &__text {
+        color: var(--bgColor-dark);
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 150%;
+        max-width: 80%;
+        font-weight: 300;
+        text-align: center;
+      //  @include adaptiveValue("font-size", 22, 16, 2, 767, 320);
+        @include adaptiveValue("font-size", 22, 12 );
+        @media (max-width:$mobileSmall){
+            max-width: 100%; 
+        }
+
+        
+        
+       
+        
+    }
 }
 

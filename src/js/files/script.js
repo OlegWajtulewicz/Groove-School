@@ -608,9 +608,6 @@ function initScripts() {
   if (typeof lenis !== 'undefined') {
       lenis.stop();  // Останавливаем Lenis
   }
-  // Инициализация слайдера
- // initFlickitySlider();
-  // Возобновляем Lenis после инициализации
   if (typeof lenis !== 'undefined') {
       lenis.start(); // Возобновляем Lenis
   }
@@ -642,45 +639,7 @@ function initScripts() {
 
 
 
-//  ScrollTrigger || LocomotiveScroll
 
-// function initSmoothScroll(container) {
-//   const scroll = new LocomotiveScroll({
-//       el: container.querySelector('[data-scroll-container]'),
-//       smooth: true,
-//       lerp: 0.1,
-//   });
-
-//   window.onresize = () => scroll.update();
-
-//   scroll.on("scroll", () => ScrollTrigger.update());
-
-//   ScrollTrigger.scrollerProxy('[data-scroll-container]', {
-//       scrollTop(value) {
-//           return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
-//       },
-//       getBoundingClientRect() {
-//           return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-//       },
-//       pinType: container.querySelector('[data-scroll-container]').style.transform ? "transform" : "fixed"
-//   });
-
-//   ScrollTrigger.defaults({
-//       scroller: document.querySelector('[data-scroll-container]'),
-//   });
-
- 
-
-//   ScrollTrigger.addEventListener('refresh', () => scroll.update());
-
-//   ScrollTrigger.refresh();
-// }
-
-// // Запуск функции после загрузки DOM
-// document.addEventListener('DOMContentLoaded', () => {
-//   const container = document.body; // Вы можете указать конкретный контейнер, если нужно
-//   initSmoothScroll(container);
-// });
 
 
 //========================================================================================================================================================
@@ -768,6 +727,55 @@ function initLoader() {
  }, null, 3);	
 
 }
+
+function initTricksWords() {
+    
+  // Copyright start
+  // © Code by T.RICKS, https://www.tricksdesign.com/
+  // You have the license to use this code in your projects but not redistribute it to others
+  // Tutorial: https://www.youtube.com/watch?v=xiAqTu4l3-g&ab_channel=TimothyRicks
+
+  // Find all text with .tricks class and break each letter into a span
+  var spanWord = document.getElementsByClassName("span-lines");
+  for (var i = 0; i < spanWord.length; i++) {
+
+  var wordWrap = spanWord.item(i);
+  wordWrap.innerHTML = wordWrap.innerHTML.replace(/(^|<\/?[^>]+>|\s+)([^\s<]+)/g, '$1<span class="span-line"><span class="span-line-inner">$2</span></span>');
+  }
+}  
+
+function initSpanLinesAnimation() {
+  if (document.querySelector('.span-lines.animate')) {
+    document.querySelectorAll('.span-lines.animate').forEach(function(triggerElement) {
+      let targetElements = triggerElement.querySelectorAll('.span-line-inner');
+
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          toggleActions: 'play none none reset',
+          start: "0% 100%",
+          end: "100% 0%"
+        }
+      });
+
+      if (targetElements.length > 0) {
+        tl.from(targetElements, {
+          y: "100%",
+          stagger: 0.01,
+          ease: "power3.out",
+          duration: 1,
+          delay: 0
+        });
+      }
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTricksWords();
+  initSpanLinesAnimation();
+  initLoader();
+});
 
 
 

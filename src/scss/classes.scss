@@ -3,13 +3,13 @@
     &__container {
         position: relative;
         background-color: #eaeaf2; 
-      //  border-radius: 0 0 5vh 5vh;
+        border-radius: 0 0 5vh 5vh;
         padding: 5em 2.5em;
         display: grid;
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-top", 80, 30, 3, 481, 320);
-        @include adaptiveValue("padding-bottom", 80, 20, 3, 481, 320);
+        @include adaptiveValue("padding-bottom", 120, 40, 2, 481, 320);
         &::after{
             content:'';
             position: absolute;
@@ -21,7 +21,7 @@
             z-index: -1;
         }
         &::before{
-            content:'';
+          //  content:'';
             position: absolute;
             bottom: -5%;
             left: 0;

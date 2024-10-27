@@ -3,6 +3,7 @@
     // .location__container
 
     &__container {
+        display: grid;
         padding: 5em 2.5em;
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);

@@ -83,10 +83,10 @@
     &__subtitle {
         font-size: toRem(18);
         text-transform: uppercase;
-        margin-bottom: 3em;
-        line-height: 150%;
-        @include adaptiveValue("font-size", 18, 12, 3, 767, 480);
-        @include adaptiveValue("margin-bottom", 30, 0, 3, 767, 480);
+        margin-bottom: 2em;
+        line-height: 180%;
+        @include adaptiveValue("font-size", 18, 10, 3, 767, 480);
+        @include adaptiveValue("margin-bottom", 30, 10, 3, 767, 480);
         @media (max-width:$mobile){
              font-weight: 300; 
         }

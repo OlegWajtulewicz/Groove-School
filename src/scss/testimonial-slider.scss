@@ -8,7 +8,7 @@
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-top", 60, 20, 3, 767, 320);
-        @include adaptiveValue("padding-bottom", 40, 0, 3, 767, 320);
+        @include adaptiveValue("padding-bottom", 120, 40, 2, 767, 320);
     }
 
     // .testimonial-slider__wrapper-slider

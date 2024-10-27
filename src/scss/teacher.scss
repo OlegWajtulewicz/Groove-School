@@ -54,6 +54,10 @@
         flex-direction: column;
         justify-content: center;
         @include adaptiveValue("gap", 30, 20);
+        .block-title__subtitle {
+            color: var(--bgColor-dark);
+            font-size: toRem(24);
+        }
     }
 
     // .teacher__title

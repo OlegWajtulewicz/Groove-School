@@ -10,7 +10,7 @@
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-top", 120, 30, 3, 767, 320);
-        @include adaptiveValue("padding-bottom", 120, 30, 3, 767, 320);
+        @include adaptiveValue("padding-bottom", 120, 30, 2, 767, 320);
     }
     &__title {
        margin-bottom: 1em;
