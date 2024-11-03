@@ -71,7 +71,10 @@
 		font-weight: 600;
 		line-height: 130%;
 		@include adaptiveValue("font-size", 22, 12, 3, 767, 320);
-        
+        .body-location__title-text {
+            line-height: 120%;
+            @include adaptiveValue("font-size", 22, 16);
+       }
     }
     // .body-location__descr
     &__descr {
@@ -82,7 +85,7 @@
         font-weight: 200;
         text-wrap: balance;
         @include adaptiveValue("gap", 20, 10);
-        @include adaptiveValue("font-size", 18, 12);
+        @include adaptiveValue("font-size", 18, 16);
         @media (max-width:$mobileSmall){
             max-width: 100%; 
         }
@@ -93,12 +96,14 @@
     &__address {
         font-weight: 300;
         line-height: 166%;
+        font-size: toRem(20);
         a {
             opacity: 1;
             text-decoration: none;
             transition: var(--animation-primary);
             position: relative;
             white-space: nowrap;
+            padding-top: .5em;
             &::before{
                 content: "";
                 bottom: 0;

@@ -31,13 +31,13 @@ img.overlay {
 .block-title {
     font-size: toRem(42);
     max-width: 70%;
-    line-height: 120%;
+    line-height: 130%;
     font-weight: 600;
     position: relative;
     color: #fffef8;
-    
     z-index: 2;
-    @include adaptiveValue("font-size", 42, 22);
+  //  margin-bottom: 1.4em;
+    @include adaptiveValue("font-size", 42, 28);
     @media (max-width:$mobile){
         max-width: 100%; 
     }
@@ -48,12 +48,11 @@ img.overlay {
         opacity: 0.6;
     }
     &__posttext {
-        font-size: toRem(16);
-        font-weight: 200;
+        font-weight: 600;
         letter-spacing: 0.03em;
         line-height: 130% ;
-        padding-top: 0.5em;
-        @include adaptiveValue("font-size", 16, 12, 3, 767, 320);
+        padding-top: 1.4em;
+        @include adaptiveValue("font-size", 18, 14, 2, 767, 320);
     }
 }
 
@@ -63,6 +62,9 @@ img.overlay {
     display: flex;
     gap: 1em;
     width: unset;
+    @media (max-width:$mobile) {
+        justify-content: center;
+    }
     // .social-group__item
 
     &__item {
@@ -191,20 +193,24 @@ img.overlay {
             .logo__word-1--big,
             .logo__word-2--big {
                 height: 4em;
+                transform: none !important;
             }
             .logo__word-2--small,
             .logo__word-1--small {
                 height: 40px;
                 width: 32px;
+                transform: none !important;
             }
             .big {
                 height: 53px !important;
+                transform: none !important;
             }   
         }
         @media (max-width:$mobileSmall){
             .logo__word-1--big,
             .logo__word-2--big {
                 height: 5em;
+                transform: none !important;
             } 
         }
         

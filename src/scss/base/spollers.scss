@@ -23,9 +23,10 @@
 	padding: var(--row-gap) var(--col-gap);
 	color: $textColor;
 	position: relative;
-	
+	line-height: 130%;
 	list-style: none;
-	@include adaptiveValue("font-size", 22, 12, 3, 767, 320);
+	padding-right: calc(var(--col-gap)* 2);
+	@include adaptiveValue("font-size", 22, 16, 3, 767, 320);
 	&::marker,
 	&::-webkit-details-marker {
 		display: none;
@@ -101,8 +102,8 @@
 .spollers__body {
 	padding: 0 calc(var(--col-gap)* 1.5) calc(var(--row-gap)* 1.5) calc(var(--col-gap)* 1);
     color: $textColor;
-	line-height: 120%;
+	line-height: 130%;
     opacity: 0.6;
 	font-weight: 200;
-	@include adaptiveValue("font-size", 18, 12 );
+	@include adaptiveValue("font-size", 18, 16 );
 }

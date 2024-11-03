@@ -68,7 +68,7 @@
         line-height: 150%;
         font-weight: 200;
         text-align: center;
-        @include adaptiveValue("font-size", 18, 12 );
+        @include adaptiveValue("font-size", 18, 16 );
     }
     // .body-classes__item--video
     &__video {

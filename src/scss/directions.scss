@@ -42,8 +42,7 @@
 
     &__posttext {
         color: $bgColor;
-        font-weight: 300;
-        line-height: 150%;
+        
     }
     // .directions__wrapper
 
@@ -70,7 +69,7 @@
         font-weight: 300;
         text-align: center;
       //  @include adaptiveValue("font-size", 22, 16, 2, 767, 320);
-        @include adaptiveValue("font-size", 22, 12 );
+        @include adaptiveValue("font-size", 22, 16);
         @media (max-width:$mobileSmall){
             max-width: 100%; 
         }

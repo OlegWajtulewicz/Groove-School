@@ -48,7 +48,7 @@
         font-size: toRem(22);
 		font-weight: 600;
 		line-height: 130%;
-		@include adaptiveValue("font-size", 22, 12, 3, 767, 320);
+		@include adaptiveValue("font-size", 22, 18, 3, 767, 320);
     }
 
     // .entry__subtitle
@@ -60,7 +60,7 @@
         padding-top: 1em;
         color: #ffc866 !important;
         opacity: 1;
-        @include adaptiveValue("font-size", 18, 14 );
+        @include adaptiveValue("font-size", 18, 16 );
     }
 
     // .entry__text
@@ -72,11 +72,11 @@
         padding-top: 1.5em;
         opacity: 0.8;
         text-wrap: balance;
-        @include adaptiveValue("font-size", 18, 12 );
+        @include adaptiveValue("font-size", 18, 14 );
     }
     &__posttext {
         color: #ffc866 !important;
-        line-height: 120%;
+        line-height: 130%;
         font-weight: 200;
         letter-spacing: 0.07em;
         padding-top: 1.5em;
@@ -114,7 +114,7 @@
 .button-buttons-entry {
     padding: 0.625rem 0.9375rem;
     border-radius: 2em;
-    font-size: 1.375rem;
+    font-size: 22px;
     font-weight: 600;
     line-height: 130%;
     width: 100%;
@@ -140,9 +140,9 @@
     &__body {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
-        gap: 1em;
+        gap: .5em;
         width: 100%;
         height: 100%;
     }
@@ -152,7 +152,7 @@
     &__title {
         color: $textColor;
         text-align: center;
-        @include adaptiveValue("font-size", 22, 12, 3, 767, 320);
+        @include adaptiveValue("font-size", 22, 15, 3, 767, 320);
     }
 
     // .button-buttons-entry__line
@@ -169,7 +169,7 @@
 
     &__coast {
         color: $textColor;
-        @include adaptiveValue("font-size", 22, 12, 3, 767, 320);
+        @include adaptiveValue("font-size", 22, 18, 3, 767, 320);
     }
 }
 .ecomomy {

@@ -72,11 +72,11 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        line-height: 120%;
+        line-height: 130%;
         opacity: 0.8;
         font-weight: 300;
         @include adaptiveValue("gap", 20, 10);
-        @include adaptiveValue("font-size", 18, 12);
+        @include adaptiveValue("font-size", 18, 16);
         @media (max-width:$mobileSmall){
             max-width: 100%; 
         }

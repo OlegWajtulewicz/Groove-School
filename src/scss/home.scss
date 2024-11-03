@@ -85,7 +85,7 @@
         text-transform: uppercase;
         margin-bottom: 2em;
         line-height: 180%;
-        @include adaptiveValue("font-size", 18, 10, 3, 767, 480);
+        @include adaptiveValue("font-size", 18, 14, 3, 767, 480);
         @include adaptiveValue("margin-bottom", 30, 10, 3, 767, 480);
         @media (max-width:$mobile){
              font-weight: 300; 
@@ -97,9 +97,9 @@
 
     &__title {
         line-height: 128%;
-        @include adaptiveValue("font-size", 100,  32);
+        @include adaptiveValue("font-size", 100,  34);
         &:not(:last-child) {
-            margin-bottom: toEm(35, 100);
+            margin-bottom: toEm(38, 100);
         }
     }
     &__title-sub {
@@ -107,7 +107,7 @@
         line-height: 140%;
         font-style: normal;
         letter-spacing: -0.03em;
-        margin-bottom: toRem(25);
+        margin-bottom: var(--row-gap);
         @include adaptiveValue("font-size", 36, 18);
     }
 
@@ -125,7 +125,7 @@
         max-width: 50em;
         gap: 3em;
         margin: 0 auto;
-        @include adaptiveValue("gap", 48, 16, 3, 991, 767);
+        @include adaptiveValue("gap", 48, 34, 3, 991, 767);
         @media (max-width:$mobile){
             flex-direction: column; 
         }
@@ -211,7 +211,7 @@
 
     &__subscribe {
         font-size: toRem(16);
-        @include adaptiveValue("font-size", 16, 12, 3, 767, 320);
+        @include adaptiveValue("font-size", 16, 13, 3, 767, 320);
         @media (max-width:$mobile){
              text-align: center;
              max-width: 80%; 

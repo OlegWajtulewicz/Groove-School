@@ -656,14 +656,6 @@ function initLoader() {
         scale: 1,
 	  });
 
-    tl.set(".transition__screen .transition__word-2 .logo__word-2", {
-      yPercent: 0,
-    },"<");
-
-    tl.set(".transition__screen .transition__word-1 .logo__word-1", {
-      yPercent: 0,
-    },"<");
-
     tl.set(".transition__screen", {
         y: 0
     });
@@ -676,20 +668,16 @@ function initLoader() {
         yPercent: 0,  // Оставляем слова на месте
     });
 
-    
-
-
-
     tl.from(".transition__screen .transition__word-2 .logo__word-2", {
         duration: 1.5,
-        yPercent: 150,
+        yPercent: 160,
         ease: "Expo.easeOut",
         stagger: .066,
     },"<0");
 
     tl.from(".transition__screen .transition__word-1 .logo__word-1", {
         duration: 1.5,
-        yPercent: 150,
+        yPercent: 160,
         ease: "Expo.easeOut",
         stagger: .066,
     },"<0.3"); 
@@ -700,6 +688,7 @@ function initLoader() {
           stagger: .096,
           duration: 0.75,
           ease: "power1.inOut",
+         // clearProps: "all",
       },
       "-=0.5",
   );
@@ -708,15 +697,10 @@ function initLoader() {
         duration: 1,
         yPercent: -100,  // Экран поднимается вверх
         ease: "Expo.easeInOut",
-        delay: 0.5,  // Небольшая задержка перед уходом экрана
+        delay: 0.1,  // Небольшая задержка перед уходом экрана
         
-    },
-      "-=.3");
-
-    
-
-    
-
+    },"-=.5");
+      
     tl.set("html", { 
 		cursor: "auto"
 	},"< -0.3");
