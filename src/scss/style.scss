@@ -78,6 +78,8 @@ body {
 	}
 	// Сайт завантажений
 	.loaded & {
+		transition: all .3s ease-in-out 1s;
+    	opacity: 1;
 	}
 	.lenis & {
 		transition: all .3s ease-in-out 1s;

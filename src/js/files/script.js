@@ -22,6 +22,7 @@ const lenis = new Lenis({
   smoothTouch: false, // Отключаем плавный скролл для сенсорных экранов
   touchMultiplier: 2, // Уровень чувствительности для сенсорных экранов
   infinite: false, // Отключаем бесконечный скролл
+  wheelEventsTarget: document.body,
 });
 
 // Удаление старого скроллбара (если нужно)
@@ -94,6 +95,7 @@ handleScrollElements();
 // Обновляем ScrollTrigger при изменении размера окна
 window.addEventListener('resize', () => {
   ScrollTrigger.refresh();
+  lenis.off('scroll');
 });
 
 function raf(time) {
@@ -257,26 +259,6 @@ document.addEventListener("DOMContentLoaded", function ()  {
 });
 
 
-//========================================================================================================================================================
-
-
-
-/**
-* GSAP Split Text
-*/
-// function initSplitText() {
-
-//     // var splitTextLines = new SplitText(".split-lines", {type: "lines, chars", linesClass: "single-line"});
-//     // $('.split-lines .single-line').wrapInner('<div class="single-line-inner">');
-  
-//     // var splitWordsWrap = new SplitText(".split-words-wrap", {type: "words", wordsClass: "single-word"});
-//     // $('.split-words-wrap .single-word').wrapInner('<div class="single-word-inner">');
-  
-//     var splitWords = new SplitText(".split-words", {type: "words", wordsClass: "single-word"});
-//     var splitTextChars = new SplitText(".split-chars", {type: "chars", charsClass: "single-char"});
-  
-// }
-// initSplitText()
 //========================================================================================================================================================
 
 
@@ -759,7 +741,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initTricksWords();
   initSpanLinesAnimation();
   initLoader();
+  initPlayVideoInview();
 });
+
+/**
+* Play Video Inview
+*/
+function initPlayVideoInview() {
+
+  let allVideoDivs = gsap.utils.toArray('.playpauze');
+
+  allVideoDivs.forEach((videoDiv, i) => {
+
+    let videoElem = videoDiv.querySelector('video')
+
+    ScrollTrigger.create({
+      scroller: document.querySelector('[data-scroll-container]'),
+      trigger: videoElem,
+      start: '0% 120%',
+      end: '100% -20%',
+      onEnter: () => videoElem.play(),
+      onEnterBack: () => videoElem.play(),
+      onLeave: () => videoElem.pause(),
+      onLeaveBack: () => videoElem.pause(),
+    });
+
+  });
+}
 
 
 

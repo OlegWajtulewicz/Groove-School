@@ -140,7 +140,7 @@
     &__body {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         gap: .5em;
         width: 100%;
@@ -152,7 +152,10 @@
     &__title {
         color: $textColor;
         text-align: center;
-        @include adaptiveValue("font-size", 22, 15, 3, 767, 320);
+        line-height: 150%;
+        letter-spacing: -.5px;
+        @include adaptiveValue("font-size", 46, 22, 0, $maxWidth, 991);
+        @include adaptiveValue("font-size", 46, 18, 3, 991, 320);
     }
 
     // .button-buttons-entry__line
@@ -169,7 +172,8 @@
 
     &__coast {
         color: $textColor;
-        @include adaptiveValue("font-size", 22, 18, 3, 767, 320);
+        @include adaptiveValue("font-size", 46, 26, 0, $maxWidth, 991);
+        @include adaptiveValue("font-size", 50, 18, 3, 991, 320);
     }
 }
 .ecomomy {
