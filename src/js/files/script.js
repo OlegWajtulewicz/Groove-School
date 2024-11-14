@@ -3,6 +3,7 @@ import { isMobile } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
+
 import Lenis from 'lenis'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
@@ -10,6 +11,7 @@ import { Draggable } from "gsap/Draggable.js";
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js';
 gsap.registerPlugin(ScrollTrigger, SplitText, Draggable, ScrollToPlugin);
 gsap.registerPlugin(Power4, Elastic);
+import { homeTexts } from './translations.js';
 
 //========== Lenis-scroll ==============================================================================================================================================
 const lenis = new Lenis({
@@ -355,7 +357,7 @@ document.querySelectorAll('.hello__btn.magnetic').forEach(function(btn) {
         gsap.to(btnTextInner, {
           duration: 0.3,
           startAt: { color: "#FFFFFF" },
-          color: "#c300ff",
+          color: "#18b4b1",
           ease: Power3.easeIn,
         });
       }
@@ -742,6 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSpanLinesAnimation();
   initLoader();
   initPlayVideoInview();
+ // loadTranslations();
 });
 
 /**
@@ -768,6 +771,82 @@ function initPlayVideoInview() {
 
   });
 }
+
+//========================================================================================================================================================
+// Получаем все кнопки для переключения языков
+const langButtons = document.querySelectorAll("[data-btn]");
+const allLangs = ["pl", "ru"];
+const currentPathName = window.location.pathname;
+let currentLang = localStorage.getItem("language") || checkBrowserLang() || "pl";
+let currentTexts = {};
+
+
+// Проверка пути страницы сайта
+function checkPagePathName() {
+	switch (currentPathName) {
+		default:
+			currentTexts = homeTexts;
+			break;
+	}
+}
+checkPagePathName();
+
+// Изменение языка у текстов
+function changeLang() {
+	for (const key in currentTexts) {
+		const elements = document.querySelectorAll(`[data-lang=${key}]`);
+		elements.forEach(element => {
+			element.textContent = currentTexts[key][currentLang];
+		});
+	}
+	// Обновление URL с выбранным языком
+	const urlParams = new URLSearchParams(window.location.search);
+	urlParams.set('lang', currentLang);
+	const newUrl = `${window.location.origin}${window.location.pathname}?${urlParams.toString()}${window.location.hash}`;
+	window.history.replaceState(null, '', newUrl);
+}
+changeLang();
+
+// Вешаем обработчики на каждую кнопку
+langButtons.forEach((btn) => {
+	btn.addEventListener("click", (event) => {
+		if (!event.target.classList.contains("active")) {
+			currentLang = event.target.dataset.btn;
+			localStorage.setItem("language", currentLang);
+			resetActiveClass(langButtons, "active");
+			btn.classList.add("active");
+			changeLang();
+		}
+	});
+});
+
+// Сброс активного класса у переданного массива элементов
+function resetActiveClass(arr, activeClass) {
+	arr.forEach((elem) => {
+		elem.classList.remove(activeClass);
+	});
+}
+
+// Проверка активной кнопки
+function checkActiveLangButton() {
+	const activeBtn = document.querySelector(`[data-btn="${currentLang}"]`);
+	if (activeBtn) {
+		activeBtn.classList.add("active");
+	} else {
+		document.querySelector('[data-btn="pl"]').classList.add("active");
+	}
+}
+checkActiveLangButton();
+
+// Проверка языка браузера
+function checkBrowserLang() {
+	const navLang = navigator.language.slice(0, 2).toLowerCase();
+	return allLangs.includes(navLang) ? navLang : null;
+}
+
+//loadTranslations()
+
+console.log("navigator.language", checkBrowserLang());
 
 
 

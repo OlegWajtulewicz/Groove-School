@@ -46,7 +46,7 @@
 			transition: var(--animation-primary);
 			backdrop-filter: saturate(180%) blur(20px);
 			-webkit-backdrop-filter: saturate(180%) blur(20px);
-			background-color: #c241e938;
+			background-color: rgba(var(--accent-light-color-rgb), .2);
 		}
 		&::before {
 			//transform: translate(-75%, -50%) rotate(40deg);
@@ -57,7 +57,7 @@
 		&._spoller-active {
 			&::before {
 				//transform: translateX(-75%) rotate(-40deg);
-				background-color: rgb(195, 0, 255);
+				background-color: rgba(var(--accent-light-color-rgb), 1);
 				opacity: 1;
 			}
 			// &::after {

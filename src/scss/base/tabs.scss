@@ -31,7 +31,7 @@
 		}
 		@media (any-hover: hover){
 			&:hover{
-				border-color: #c241e938;
+				border-color: rgba(var(--accent-light-color-rgb), .6);
 			}
 		}
 		&::before{
@@ -44,14 +44,14 @@
 			backdrop-filter: saturate(180%) blur(20px);
     		-webkit-backdrop-filter: saturate(180%) blur(20px);
 			border: 1px solid #00000000;
-			background-color: #c241e938;
+			background-color: rgba(var(--accent-light-color-rgb), .6);
 			color: $textColor;
 		}
 	}
 	// .tabs__content
-	&__content {
-		border: 1px solid #eee;
+	&__content {	//border: 1px solid #eee;
 		padding: toRem(10) 0;
+		outline: none;
 	}
 	// .tabs__body
 	&__body {

@@ -58,6 +58,9 @@
         display: flex;
         align-items: flex-end;
         gap: 0.1em;
+        transition: all .4s cubic-bezier(.4,.3,.39,.89);
+        -webkit-filter: drop-shadow(0 0 2px rgba(var(--accent-color-rgb), 1));
+        filter: drop-shadow(0 0 2px rgba(var(--accent-color-rgb), 1));
     }
 
     // .logo__word-1--big
@@ -112,8 +115,31 @@
           //  transition: opacity .4s, display .4s allow-discrete;
         }
     }
-
 }
+//========================================================================================================================================================
+.language-bar-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: 2em;
+    bottom: -.2em;
+
+    &__link {
+        margin: 0 .75rem;
+        padding: .75rem 0;
+        transition: all .3s cubic-bezier(.7,0,.3,1);
+        color: rgba(228, 228, 228, .6352941176);
+        cursor: pointer;
+        z-index: 10;
+        .active {
+            color: $textColor;
+        }
+    }
+}
+
+
 //========================================================================================================================================================
 
 .menu-overlay {
@@ -123,11 +149,11 @@
     right: 0;
     width: 100%;
     padding: 3.5em 2.5em 2.5em;
-    background-color: #535353;
+    background-color: rgba(var(--accent-color-rgb), .5);
     pointer-events: none;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     border-radius: 0 0 2em 2em;
-    background: linear-gradient(140deg, #242424, #2c013b);
+    background: linear-gradient(140deg, var(--accent-dark), rgba(var(--color-primary-rgb), 1));
     background-repeat: no-repeat;
     background-size: 200%;
     animation: gradient 10s infinite;
@@ -312,12 +338,19 @@
     position: relative;
     transform: translateY(0%);
     transition: var(--animation-primary);
+    -webkit-text-stroke: .5px #a1a1a1;
+    text-shadow: 0 1px 0 rgba(138, 131, 131, 0.72);
+    -webkit-filter: drop-shadow(0 0 .5px rgba(var(--accent-color-rgb), 1));
+    filter: drop-shadow(0 0 .5px rgba(var(--accent-color-rgb), 1));
 }
 .split-words:nth-child(2) .single-word {
     position: relative;
     transform: translateY(175%);
     transition: var(--animation-primary);
-
+    -webkit-text-stroke: .5px #8f8b8b;
+    text-shadow: 0 1px 0 rgba(138, 131, 131, 0.72);
+    -webkit-filter: drop-shadow(0 0 .5px rgba(var(--accent-color-rgb), 1));
+    filter: drop-shadow(0 0 .5px rgba(var(--accent-color-rgb), 1));
 }
 .header__menu {
     @media (any-hover: hover){

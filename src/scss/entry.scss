@@ -177,7 +177,7 @@
     }
 }
 .ecomomy {
-    background-color: #f7eaff;
+    background-color: #f9feff;
     
     // .ecomomy__label
     &__label {
@@ -194,7 +194,7 @@
             line-height: 220%;
             letter-spacing: 0.05em;
             border-radius: 2em 2em 0 0;
-            background-color: rgba(194, 65, 233, 0.479);
+            background-color: rgba(var(--accent-color-rgb), 1);
             @media (max-width:$mobileSmall){
                 margin-right: 4%; 
                 letter-spacing: 0;

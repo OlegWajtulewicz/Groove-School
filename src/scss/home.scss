@@ -14,7 +14,7 @@
         z-index: 1;
     }
     .hello-overlay-red {
-        position: absolute;
+      //  position: absolute;
         top: 0;
         left: 0;
         height: 100%;
@@ -23,7 +23,7 @@
         z-index: 1;
     }
     .overlay-gradient {
-        background: linear-gradient(0deg, rgba(var(--bgColor-dark-rgb), 1) 6%, rgba(var(--bgColor-dark-rgb), 0) 100%);
+        background: linear-gradient(0deg, rgba(var(--bgColor-dark-rgb), 1) 6%, rgba(var(--bgColor-dark-rgb), 0) 50%);
         transform: scaleY(1);
         height: calc(100% + 2px);
         top: toRem(-1);
@@ -43,7 +43,9 @@
         width: 100%;
         position: absolute;
         top: 0;
-        left: 0;
+        left: auto;
+        right: 0;
+       // @include adaptiveValue("right", 50, 150);
     }
     
 

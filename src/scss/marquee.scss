@@ -77,7 +77,7 @@
    border-radius: 2em;
    backdrop-filter: saturate(180%) blur(20px);
    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    background-color: #c241e938;
+   background-color: rgba(var(--accent-color-rgb), .4);
 }
 
 [data-theme-section="light"] .marquee .marquee-content span {
@@ -137,7 +137,7 @@
     --gradient-size: calc(var(--title-size) * 9);
     width: var(--gradient-size);
     height: var(--gradient-size);
-    background: radial-gradient(circle, var(--color-secondary) 0%, rgba(var(--color-dark-rgb), 0) 66%);
+    background: radial-gradient(circle, var(--secondary) 0%, rgba(var(--color-dark-rgb), 0) 66%);
     position: absolute;
     opacity: 0.4;
     pointer-events: none;

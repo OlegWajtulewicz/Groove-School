@@ -3,7 +3,7 @@
     &__container {
         padding: 5em 2.5em;
         display: grid;
-        background-color: #f7eaff;
+        background-color: #f9feff;
         border-radius: 5vh;
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
@@ -53,7 +53,7 @@
     &__body-item {
         padding: 5em 0;
         border-radius: 4vh;
-        background-color: rgba(var(--color-glow-rgb), .2);
+        background-color: rgba(var(--color-primary-rgb), .1);
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
     }
