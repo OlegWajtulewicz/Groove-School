@@ -227,6 +227,12 @@
         display: flex;
     }
 }
+.menu-cols .col .social-group {
+    justify-content: flex-start;
+    @media (max-width:$mobileSmall){
+        justify-content: center; 
+    }
+}
 
 .menu-link {
     position: relative;
@@ -257,9 +263,9 @@
     }
 }
 .menu-link a {
-    font-size: toRem(36);
+    font-size: toRem(38);
     width: 100%;
-    @include adaptiveValue("font-size", 32, 22, 3, 767, 320);
+    @include adaptiveValue("font-size", 32, 28, 3, 767, 320);
 }
 
 .menu-footer {

@@ -82,6 +82,7 @@
         padding-top: 1.5em;
         opacity: 1;
         text-wrap: balance;
+        grid-column: 2 / 3;
         @include adaptiveValue("font-size", 18, 16 );
     }
 }
@@ -91,6 +92,13 @@
     // .buttons-entry__group
 
     &__group {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        @include adaptiveValue("gap", 36, 10, 3, 767, 320);
+    }
+    &__buttons-wrap {
         display: flex;
         justify-content: space-around;
         gap: 2em;
@@ -114,7 +122,7 @@
 .button-buttons-entry {
     padding: 0.625rem 0.9375rem;
     border-radius: 2em;
-    font-size: 22px;
+    font-size: toEm(22);
     font-weight: 600;
     line-height: 130%;
     width: 100%;
@@ -127,7 +135,7 @@
     position: relative;
     @media (max-width:$mobileSmall){
         border-radius: 1em; 
-        padding: 8px 10px;
+        padding: toEm(8) toEm(10);
     }
     &::before{
         content: "";
@@ -189,7 +197,7 @@
             color: $textColor;
             padding: 0.25em 1em 0 1em;
             margin-right: 4em;
-            font-size: 10px;
+            font-size: toEm(10);
             font-weight: 400;
             line-height: 220%;
             letter-spacing: 0.05em;
@@ -212,3 +220,65 @@
         opacity: 0.6;
     }
 }
+
+.button-circle {
+    aspect-ratio: 1 / 1;
+    padding: 0.625rem 0.9375rem;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 130%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+    justify-content: space-evenly;
+    background-color: rgba(var(--accent-color-rgb), 1);
+    transition: 0.4s cubic-bezier(0.5, 0, 0.25, 1);
+    border: 1px solid rgba(238, 238, 238, 0.3);
+    transform: translate(50%, -25%);
+    cursor: pointer;
+    @media (max-width:$mobileSmall){
+        padding: 8px 10px;
+    }
+    @media (any-hover: hover){
+        &:hover{
+            transform: translate(50%, -27%);
+        }
+    }
+    &:active{
+        transform: scale(0.95);
+    }
+    
+
+    // .button-circle__title
+
+    &__title {
+        color: $textColor;
+        text-align: center;
+        line-height: 150%;
+        letter-spacing: -.5px;
+        @include adaptiveValue("font-size", 46, 22, 0, $maxWidth, 991);
+        @include adaptiveValue("font-size", 46, 18, 3, 991, 320);
+    }
+
+    // .button-circle__line
+
+    &__line {
+        width: 80%;
+        height: 1px;
+        background-color: #fff;
+        opacity: 0.2;
+    }
+
+    // .button-circle__coast
+
+    &__coast {
+        color: $textColor;
+        text-align: center;
+        @include adaptiveValue("font-size", 46, 26, 0, $maxWidth, 991);
+        @include adaptiveValue("font-size", 50, 18, 3, 991, 320);
+    }
+}
+

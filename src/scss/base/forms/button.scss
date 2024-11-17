@@ -33,6 +33,10 @@
         transition: .4s all ease;
         z-index: -1;
     }
+    @media (max-width:$mobileSmall){
+         width: 100%; 
+         text-align: center;
+    }
 }
 .btn:hover a {
   // color: #e9e9e9; 

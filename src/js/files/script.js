@@ -357,7 +357,7 @@ document.querySelectorAll('.hello__btn.magnetic').forEach(function(btn) {
         gsap.to(btnTextInner, {
           duration: 0.3,
           startAt: { color: "#FFFFFF" },
-          color: "#18b4b1",
+          color: "#1100ff",
           ease: Power3.easeIn,
         });
       }
@@ -744,6 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSpanLinesAnimation();
   initLoader();
   initPlayVideoInview();
+ 
  // loadTranslations();
 });
 
@@ -849,5 +850,20 @@ function checkBrowserLang() {
 console.log("navigator.language", checkBrowserLang());
 
 
+//====== vibratePhone ==================================================================================================================================================
+document.addEventListener("DOMContentLoaded", function() {
+  // Функция для вибрации
+  function vibratePhone() {
+    if (navigator.vibrate) {
+      navigator.vibrate(50);
+    } else {
+      console.log("Vibration API is not supported in your browser..");
+    }
+  }
 
+  const buttons = document.querySelectorAll(".header__menu, .menu-close.header__menu, .menu-link, .hello__btn");
+      buttons.forEach(button => {
+        button.addEventListener("click", vibratePhone);
+      });
+});
 

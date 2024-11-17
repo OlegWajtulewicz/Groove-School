@@ -12,7 +12,7 @@ export const homeTexts = {
 		ru: "Направления",
 	},
 	"menu__link-4": {
-		pl: "Sposób organizacji zajęć",
+		pl: "Jak idzie nauka",
 		ru: "Как проходят занятия ",
 	},
 	"menu__link-5": {
@@ -214,6 +214,14 @@ export const homeTexts = {
 	"entry-text1": {
 		pl: "Po przesłaniu zgłoszenia skontaktuje się z Tobą nauczyciel, aby wspólnie wybrać dogodny termin zajęć. Odpowie na wszystkie Twoje pytania i doradzi, jak przygotować się do pierwszej lekcji z zespołem.",
 		ru: "После заявки тебе напишет преподаватель и вы вместе выберите удобную дату и время для занятия. Педагог ответит на все твои вопросы и подскажет, как подготовиться к первой репетиции с группой.",
+	},
+	"btn-zespul": {
+		pl: "Własny",
+		ru: "Своя",
+	},
+	"btn-zespul1": {
+		pl: "Zespół ",
+		ru: "группа ",
 	},
 	// questions
 	"q1": {

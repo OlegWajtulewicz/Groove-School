@@ -83,11 +83,11 @@
     // .hello-block__subtitle
 
     &__subtitle {
-        font-size: toRem(18);
+        font-size: toRem(22);
         text-transform: uppercase;
         margin-bottom: 2em;
         line-height: 180%;
-        @include adaptiveValue("font-size", 18, 14, 3, 767, 480);
+        @include adaptiveValue("font-size", 20, 14, 3, 767, 480);
         @include adaptiveValue("margin-bottom", 30, 10, 3, 767, 480);
         @media (max-width:$mobile){
              font-weight: 300; 

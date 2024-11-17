@@ -4,9 +4,9 @@
 :root {
 	// Site colors (Кольори сайту):
 	// =================================================================
-	--primary: #18b4b1; // Site main color - (Основний колір сайту)
-	--secondary: #1c6b7a; // Site secondary color - (Додатковий колір сайту)
-	--accent: #096766; // Site accent color - (Наприклад: кнопки дії, заголовки, посилання)
+	--primary: #1a118f; // Site main color - (Основний колір сайту)
+	--secondary: #1a118f; // Site secondary color - (Додатковий колір сайту)
+	--accent: #1a118f; // Site accent color - (Наприклад: кнопки дії, заголовки, посилання)
    --accent-light: #5ed4c8;
    --accent-dark: #012423;
 	--inverse: #c300ff; // Site inverse color - (Наприклад: для створення контрасту між фоном та текстом)
@@ -34,6 +34,9 @@
 
 :root {
 
+   --white-pupure: rgba(240, 237, 242, 1);
+   --bg-yellow: rgb(240 241 235);
+
    --color-dark-rgb: 28, 29, 36;
    --color-dark: rgba(var(--color-dark-rgb), 1);
    --color-dark-tint: #22232B;
@@ -41,12 +44,12 @@
    --bgColor-dark: rgba(var(--bgColor-dark-rgb), 1);
    --bgColor-dark-rgb: 24, 24, 26;
 
-   --accent: #096766;
-   --accent-color-rgb: 9, 103, 102; 
+   --accent: #1a118f;
+   --accent-color-rgb: 26, 17, 143; 
    --accent-color: rgba(var(--accent-color-rgb), 1);
 
-   --accent-light: #5ed4c8;
-   --accent-light-color-rgb: 94, 212, 200;
+   --accent-light: #291dda;
+   --accent-light-color-rgb: 56, 41, 229;
    --accent-light-color: rgba(var(--accent-light-color-rgb), 1);
 
    --color-light-rgb: 247, 247, 255;
@@ -59,8 +62,8 @@
    --color-black-rgb: 0, 0, 0;
    --color-black: rgba(var(--color-black-rgb), 1);
 
-   --primary: #18b4b1;
-   --color-primary-rgb: 24, 180, 187;
+   --primary: #1100ff;
+   --color-primary-rgb: 19, 0, 225;
    --color-primary: rgba(var(--color-primary-rgb), 1);
 
    --color-secondary-rgb: 194, 65, 233;

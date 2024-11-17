@@ -53,7 +53,7 @@
     &__body-item {
         padding: 5em 0;
         border-radius: 4vh;
-        background-color: rgba(var(--color-primary-rgb), .1);
+        background-color: rgba(var(--color-primary-rgb), .15);
         @include adaptiveValue("padding-left", 40, 10, 3, 767, 481);
         @include adaptiveValue("padding-right", 40, 10, 3, 767, 481);
     }
