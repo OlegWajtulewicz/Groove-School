@@ -74,6 +74,10 @@ export const homeTexts = {
 		pl: "W Warszawie projekt BWJ obrał kierunek edukacyjny. W kwietniu 2024 Ludmiła zorganizowała i poprowadziła warsztaty z gry w zespole. Odniosły one taki sukces, że zainspirowały ją do zorganizowania takich warsztatów regularnie, co doprowadziło do powstania BWJ Groove School.",
 		ru: "В Варшаве проект BWJ пошёл в сторону образования. В апреле Людмила организовала и провела мастер-класс по игре в ансамбле. Он прошел настолько удачно, что подтолкнул её к мысли поставить такие мастер-классы на поток, то есть организовать BWJ Школу Грува.",
 	},
+	"teacher-text3": {
+		pl: "Występowała z wieloma artystami, zespołami i orkiestrami (Ray Brown Junior, Mats Gustafsson, Alex Sipiagin, «Outsiders», «Apple Tea», «Ruble Zone», LipnitskyShowOrchestra, Aminoqfazz, Djawadi Sympho Show i in.). Dużo pracuje w projektach telewizyjnych i uczestniczy w festiwalach jazzowych w Europie.",
+		ru: "Выступала со многими артистами, ансамблями и оркестрами (Ray Brown Junior, Mats Gustafsson, Alex Sipiagin, «Outsiders», «Apple Tea», «Рублёвая зона», LipnitskyShowOrchestra, Aminoqfazz, Djawadi Sympho Show и другие). Много работает в телевизионных проектах и участвует в джазовых фестивалях Европы.",
+	},
 	// supplement 
 	"supplement-sub": {
 		pl: "Dla kogo są te zajęcia?",
@@ -187,18 +191,7 @@ export const homeTexts = {
 		pl: "Oszczędność — 200 zł",
 		ru: "Экономия — 200 zł",
 	},
-	"btn-title": {
-		pl: "Zapisz się",
-		ru: "Записаться",
-	},
-	"btn-title1": {
-		pl: "na 1 zajęcie",
-		ru: "на 1 занятие",
-	},
-	"btn-title2": {
-		pl: "na 4 zajęcia",
-		ru: "на 4 занятие",
-	},
+	
 	"entry-title": {
 		pl: "Zapisz się na pierwsze zajęcie i poznaj wszystkie sekrety udanych muzyków!",
 		ru: "Запишись на первое занятие и узнай все секреты успешных музыкантов",
@@ -215,14 +208,7 @@ export const homeTexts = {
 		pl: "Po przesłaniu zgłoszenia skontaktuje się z Tobą nauczyciel, aby wspólnie wybrać dogodny termin zajęć. Odpowie na wszystkie Twoje pytania i doradzi, jak przygotować się do pierwszej lekcji z zespołem.",
 		ru: "После заявки тебе напишет преподаватель и вы вместе выберите удобную дату и время для занятия. Педагог ответит на все твои вопросы и подскажет, как подготовиться к первой репетиции с группой.",
 	},
-	"btn-zespul": {
-		pl: "Własny",
-		ru: "Своя",
-	},
-	"btn-zespul1": {
-		pl: "Zespół ",
-		ru: "группа ",
-	},
+	
 	// questions
 	"q1": {
 		pl: "Co to jest groove?",
@@ -300,4 +286,56 @@ export const homeTexts = {
 
 };
         
-
+export const homeHTML  = { 
+	"buttons-group": {
+		pl: `<div class="buttons-entry__group">
+				<div class="buttons-entry__buttons-wrap">
+					<a class="buttons-entry__button button-buttons-entry" href="https://docs.google.com/forms/d/e/1FAIpQLScqHcQqJ-ZyjYnF8rbyPImWKAjGfQENTGllgXP66VHLSmX1WA/viewform" target="_blank">
+						<div class="button-buttons-entry__body">
+							<div class="button-buttons-entry__title"><span>Zapisz się </span> <br><span> na 1 zajęcie </span> </div>
+							<div class="button-buttons-entry__line"></div>
+							<div class="button-buttons-entry__coast">200 zł</div>
+						</div>
+					</a>
+					<a class="buttons-entry__button button-buttons-entry ecomomy" href="https://docs.google.com/forms/d/e/1FAIpQLScqHcQqJ-ZyjYnF8rbyPImWKAjGfQENTGllgXP66VHLSmX1WA/viewform" target="_blank">
+						
+						<div class="button-buttons-entry__body">
+							<div class="button-buttons-entry__title"><span>Zapisz się </span><br><span>na 1 zajęcia</span></div>
+							<div class="button-buttons-entry__line"></div>
+							<div class="button-buttons-entry__coast">600 zł</div>
+						</div>
+					</a>
+				</div>
+				<a class="buttons-entry__button-circle button-circle" href="https://docs.google.com/forms/d/e/1FAIpQLScqHcQqJ-ZyjYnF8rbyPImWKAjGfQENTGllgXP66VHLSmX1WA/viewform" target="_blank">
+					<div class="button-circle__title"><span>Własny  </span><br><span>Zespół </span></div>
+					<div class="button-circle__line"></div>
+					<div class="button-circle__coast">600 zł</div>
+				</a>
+			</div> `,
+		ru: `<div class="buttons-entry__group">
+				<div class="buttons-entry__buttons-wrap">
+					<a class="buttons-entry__button button-buttons-entry" href="https://docs.google.com/forms/d/e/1FAIpQLSffP-5tNeQvSpVBJYC8Ov9Sc1WGS4HZK_7wK9I9wJSE2nmXhA/viewform" target="_blank">
+						<div class="button-buttons-entry__body">
+							<div class="button-buttons-entry__title"><span>Записаться </span> <br><span>на 1 занятие</span> </div>
+							<div class="button-buttons-entry__line"></div>
+							<div class="button-buttons-entry__coast">200 zł</div>
+						</div>
+					</a>
+					<a class="buttons-entry__button button-buttons-entry ecomomy" href="https://docs.google.com/forms/d/e/1FAIpQLSffP-5tNeQvSpVBJYC8Ov9Sc1WGS4HZK_7wK9I9wJSE2nmXhA/viewform" target="_blank">
+						
+						<div class="button-buttons-entry__body">
+							<div class="button-buttons-entry__title"><span>Записаться </span><br><span>на 4 занятие</span></div>
+							<div class="button-buttons-entry__line"></div>
+							<div class="button-buttons-entry__coast">600 zł</div>
+						</div>
+					</a>
+				</div>
+				<a class="buttons-entry__button-circle button-circle" href="https://docs.google.com/forms/d/e/1FAIpQLSffP-5tNeQvSpVBJYC8Ov9Sc1WGS4HZK_7wK9I9wJSE2nmXhA/viewform" target="_blank">
+					<div class="button-circle__title"><span>Своя  </span><br><span>группа </span></div>
+					<div class="button-circle__line"></div>
+					<div class="button-circle__coast">600 zł</div>
+				</a>
+			</div> `,
+	},
+	
+};

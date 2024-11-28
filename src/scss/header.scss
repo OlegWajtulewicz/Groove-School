@@ -238,7 +238,7 @@
     position: relative;
     width: max-content;
     padding-bottom: .5em;
-    @include adaptiveValue("margin-bottom", 12, 5, );
+    margin-bottom: toRem(14);
     &::after{
         content:'';
         position: absolute;

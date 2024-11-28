@@ -64,6 +64,56 @@
 
     &__title {
         color: $bgColor;
+        a {
+            position: relative;
+            display: flex;
+            gap: 0.5em;
+            align-items: center;
+            white-space: nowrap;
+            &::after{
+                content:'';
+                position: absolute;
+                height: 0.02em;
+                bottom: toEm(-1);
+                width: 100%;
+                background-color: rgba(var(--color-dark-rgb), 0.15);
+                transition: var(--animation-primary);
+            }
+            @media (any-hover: hover){
+                &:hover{
+                    &::after{
+                        background-color: rgba(var(--color-dark-rgb), 0.35);
+                        
+                    }
+                    .teacher__icon {
+                        transform: scale(1) rotate(0.001deg);
+                    }
+                }
+            }
+        }
+        
+    }
+    &__icon {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 1em;
+        height: 1em;
+        padding: .6em;
+        border-radius: 50%;
+        transform: rotate(0.001deg);
+        background-color: rgba(var(--accent-light-color-rgb), .85);
+        transform: scale(0) rotate(45deg);
+        transform-origin: left;
+        transition: transform var(--animation-primary);
+        &::before{
+            font-size: .5em;
+            color: #fcfcfc;
+        }
+        .touch & {
+            transform: scale(1) rotate(0.001deg);
+        }
     }
 
     // .teacher__descr

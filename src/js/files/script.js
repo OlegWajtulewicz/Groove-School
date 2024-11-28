@@ -11,7 +11,7 @@ import { Draggable } from "gsap/Draggable.js";
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin.js';
 gsap.registerPlugin(ScrollTrigger, SplitText, Draggable, ScrollToPlugin);
 gsap.registerPlugin(Power4, Elastic);
-import { homeTexts } from './translations.js';
+import { homeTexts, homeHTML } from './translations.js';
 
 //========== Lenis-scroll ==============================================================================================================================================
 const lenis = new Lenis({
@@ -780,6 +780,7 @@ const allLangs = ["pl", "ru"];
 const currentPathName = window.location.pathname;
 let currentLang = localStorage.getItem("language") || checkBrowserLang() || "pl";
 let currentTexts = {};
+let currentHTML  = {};
 
 
 // Проверка пути страницы сайта
@@ -787,6 +788,7 @@ function checkPagePathName() {
 	switch (currentPathName) {
 		default:
 			currentTexts = homeTexts;
+      currentHTML  = homeHTML;
 			break;
 	}
 }
@@ -797,7 +799,21 @@ function changeLang() {
 	for (const key in currentTexts) {
 		const elements = document.querySelectorAll(`[data-lang=${key}]`);
 		elements.forEach(element => {
-			element.textContent = currentTexts[key][currentLang];
+		//	element.textContent = currentTexts[key][currentLang];
+
+    if (homeTexts[key]?.[currentLang]) {
+      element.textContent = homeTexts[key][currentLang];
+      } 
+		});
+	}
+
+  for (const key in currentHTML) {
+		const elements = document.querySelectorAll(`[data-lang=${key}]`);
+		elements.forEach(element => {
+			// Обновляем разметку, если есть
+			if (currentHTML[key]?.[currentLang]) {
+				element.innerHTML = currentHTML[key][currentLang];
+			}
 		});
 	}
 	// Обновление URL с выбранным языком
@@ -851,7 +867,7 @@ console.log("navigator.language", checkBrowserLang());
 
 
 //====== vibratePhone ==================================================================================================================================================
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
   // Функция для вибрации
   function vibratePhone() {
     if (navigator.vibrate) {
